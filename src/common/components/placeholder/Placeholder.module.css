@@ -1,0 +1,56 @@
+.full {
+  height: calc(100vh - 9rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.profiles {
+  display: flex;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding-top: 2rem;
+}
+
+.profileIcon {
+  width: 32px;
+  height: auto;
+
+  transition: all 0.1s ease-in-out;
+  animation: bobbing 3s infinite ease-in;
+}
+
+.profileIcon:hover {
+  transform: scale(1.1);
+}
+
+.profileIcon:active {
+  transform: scale(0.9);
+}
+
+.rotating {
+  display: inline-block;
+  animation: rotation 10s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate3d(0, 0, 0, 0deg);
+  }
+  to {
+    transform: rotate3d(0, 1, 0, 359deg);
+  }
+}
+
+@keyframes bobbing {
+  0%, 100% {
+    transform: scale(1.0);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}

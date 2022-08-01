@@ -1,0 +1,10 @@
+.footer {
+  width: 100%;
+  padding-top: var(--space-xs);
+  padding-bottom: var(--space-xs);
+  height: 6rem;
+}
+
+.copyright {
+  text-align: center;
+}
