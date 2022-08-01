@@ -3,12 +3,20 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { classes } from '@utils/index';
 import styles from './Header.module.css';
+import others from '@components/placeholder/Placeholder.module.css';
 
 type Props = {}
 
 export function Header({}: Props) {
-  const [showBurger, setShowBurger] = useState(false);
+  const [openBurger, setOpenBurger] = useState(false);
   const router = useRouter();
+
+  useEffect(() => {
+    const animationEls = document.querySelectorAll(`.${others.rotating}, .${others.bobbing}`);
+    animationEls?.forEach((el) => {
+      el.classList.toggle('noanimation');
+    })
+  }, [openBurger])
 
   return (
     <header className={styles.header}>
@@ -19,7 +27,7 @@ export function Header({}: Props) {
         </a>
       </Link>
 
-      <nav className={styles.menu} data-burger={showBurger}>
+      <nav className={styles.menu} data-burger={openBurger}>
         <Link href='#about'>
           <a className={styles.link}>About</a>
         </Link>
@@ -33,9 +41,9 @@ export function Header({}: Props) {
         </Link>
       </nav>
       
-      <label className={styles.burgerIcon} data-burger={showBurger}>
+      <label className={styles.burgerIcon} data-burger={openBurger}>
         <input type="checkbox" className={styles.checkbox} onChange={(e) => {
-          setShowBurger(e.target.checked);
+          setOpenBurger(e.target.checked);
         }}/>
 
         <div className={styles.burgerLines}>
