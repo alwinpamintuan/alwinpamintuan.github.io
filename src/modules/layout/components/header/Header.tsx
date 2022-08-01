@@ -13,9 +13,15 @@ export function Header({}: Props) {
 
   useEffect(() => {
     const animationEls = document.querySelectorAll(`.${others.rotating}, .${others.bobbing}`);
-    animationEls?.forEach((el) => {
-      el.classList.toggle('noanimation');
-    })
+    if(openBurger){
+      animationEls?.forEach((el) => {
+        el.classList.add('noanimation');
+      })
+    }else{
+      animationEls?.forEach((el) => {
+        el.classList.remove('noanimation');
+      })
+    }
   }, [openBurger])
 
   return (
