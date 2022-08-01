@@ -2,16 +2,16 @@
 
 /* Main Container */
 .header {
-  margin-top: 0.5rem;
   display: flex;
   align-items: center;
   width: 100%;
   height: 2.5rem;
   position: sticky;
   position: -webkit-sticky;
+  margin-top: 0.5rem;
   top: 0px;
 
-  backdrop-filter: blur(4px);
+  background-color: white;
 }
 
 /* Logo */
@@ -84,7 +84,7 @@
 .burgerLines {
   width: 100%;
   margin-left: -100%;
-  z-index: 2;
+  z-index: 3;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -140,12 +140,14 @@
     display: flex;
     position: absolute;
     right: 0;
+    z-index: 2;
   }
 
   .menu {
+    z-index: 1;
     position: fixed;
     top: 0;
-    right: -100%;
+    right: -50%;
 
     display: flex;
     flex-direction: column;
@@ -154,31 +156,26 @@
     gap: var(--space-xs);
     
     padding-top: var(--space-m);
-
+    padding-right: var(--space-xs);
     height: 100vh;
-    width: 100vw;
-    backdrop-filter: blur(4px);
+
+    background-color: var(--clr-neutral200);
+    border-left: 3px solid var(--clr-black);
 
     transition: all 0.15s ease-in-out;
   }
 
   .menu[data-burger=true] {
-    right: 0;
+    right: 0%;
   }
 
   .link {
     line-height: 1.25rem;
+    padding-left: 3rem;
   }
   
   .link:after {
     width: 100%;
     bottom: calc(var(--space-xxs)*-0.5);
-  }
-}
-
-@supports not (backdrop-filter: blur(4px)) {
-  .menu, .header {
-    background-color: white;
-    opacity: 90%;
   }
 }

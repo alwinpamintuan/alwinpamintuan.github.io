@@ -18,23 +18,15 @@
 
 .profileIcon {
   width: 32px;
-  height: auto;
-
-  transition: all 0.1s ease-in-out;
-  animation: bobbing 3s infinite ease-in;
-}
-
-.profileIcon:hover {
-  transform: scale(1.1);
-}
-
-.profileIcon:active {
-  transform: scale(0.9);
 }
 
 .rotating {
   display: inline-block;
   animation: rotation 10s infinite linear;
+}
+
+.bobbing {
+  animation: bobbing 3s infinite ease-in-out;
 }
 
 @keyframes rotation {

@@ -63,3 +63,7 @@ a:hover {
   color: var(--clr-neutral400);
   transition: 150ms ease-in-out;
 }
+
+.noanimation {
+  animation: none !important;
+}
