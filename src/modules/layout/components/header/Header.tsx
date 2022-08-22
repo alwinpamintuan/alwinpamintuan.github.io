@@ -47,8 +47,12 @@ export function Header({}: Props) {
       </Link>
 
       <nav className={styles.menu} data-burger={openBurger}>
-        {links.map((link) => (
-          <a className={styles.link} onClick={() => handleLinkClick(link)}>
+        {links.map((link, i) => (
+          <a
+            className={styles.link}
+            key={i}
+            onClick={() => handleLinkClick(link)}
+          >
             {link}
           </a>
         ))}
