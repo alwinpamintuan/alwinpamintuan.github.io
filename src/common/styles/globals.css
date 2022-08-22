@@ -14,7 +14,6 @@ html {
     var(--clr-neutral50)
   );
   background-attachment: fixed;
-  /* filter: invert(1) hue-rotate(180deg); */
 }
 
 * {
@@ -76,4 +75,10 @@ a:hover {
 
 .noanimation {
   animation: none !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not(img) {
+    filter: invert(1) hue-rotate(180deg);
+  }
 }
