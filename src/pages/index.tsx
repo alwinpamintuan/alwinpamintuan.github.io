@@ -6,8 +6,7 @@ import { About } from "@modules/about";
 const Home: NextPage = () => {
   return (
     <Layout>
-      {/* <Placeholder /> */}
-      <About />
+      <Placeholder />
     </Layout>
   );
 };
