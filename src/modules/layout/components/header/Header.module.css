@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=MuseoModerno&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=MuseoModerno&display=swap");
 
 /* Main Container */
 .header {
@@ -7,18 +7,23 @@
   width: 100%;
   height: 2.5rem;
   position: sticky;
-  position: -webkit-sticky;
   margin-top: 0.5rem;
   top: 0px;
+}
 
-  background-color: white;
+.header::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  backdrop-filter: blur(8px);
 }
 
 /* Logo */
 .brand {
   flex-shrink: 0;
   font-size: 18px;
-  font-family: 'MuseoModerno', cursive;
+  font-family: "MuseoModerno", cursive;
   letter-spacing: 0.05rem;
 }
 
@@ -41,29 +46,26 @@
   background: none;
   font-size: 1rem;
   transition: color 0.15s ease-in-out;
-  position: relative;
   cursor: pointer;
-}
+  position: relative;
 
-.link:after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  transform: scaleX(0);
-  height: 2px;
-  bottom: calc(2px - var(--space-xxs));
-  left: 0;
-  background-color: var(--clr-black);
-  transform-origin: bottom;
-  transition: transform 0.15s ease-out;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  font-weight: 500;
 }
 
 .link:hover {
-  color: var(--clr-black);
+  color: var(--clr-neutral50);
+  background-color: var(--clr-black);
+
+  --shadow-value: 0px 0px 9px 3px rgba(41, 41, 41, 0.25);
+  -webkit-box-shadow: var(--shadow-value);
+  -moz-box-shadow: var(--shadow-value);
+  box-shadow: var(--shadow-value);
 }
 
 .link:hover:after {
-  transform: scaleX(1);
+  transform: scaleY(1);
 }
 
 /* Burger Menu */
@@ -111,15 +113,15 @@
   transition: transform 0.15s ease-in-out;
 }
 
-.checkbox:checked ~ .burgerLines .line1{
+.checkbox:checked ~ .burgerLines .line1 {
   transform: rotate(-45deg);
 }
 
-.checkbox:checked ~ .burgerLines .line2{
+.checkbox:checked ~ .burgerLines .line2 {
   transform: scale(0);
 }
 
-.checkbox:checked ~ .burgerLines .line3{
+.checkbox:checked ~ .burgerLines .line3 {
   transform: rotate(45deg);
 }
 
@@ -135,7 +137,7 @@
   display: none;
 }
 
-@media (orientation: portrait) {
+@media (max-width: 1280px) {
   .burgerIcon {
     display: flex;
     position: absolute;
@@ -154,28 +156,30 @@
     justify-content: flex-start;
     align-items: flex-end;
     gap: var(--space-xs);
-    
+
     padding-top: var(--space-m);
     padding-right: var(--space-xs);
     height: 100vh;
 
-    background-color: var(--clr-neutral200);
-    border-left: 3px solid var(--clr-black);
-
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     transition: all 0.15s ease-in-out;
   }
 
-  .menu[data-burger=true] {
+  .menu::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+  }
+
+  .menu[data-burger="true"] {
     right: 0%;
   }
 
   .link {
     line-height: 1.25rem;
-    padding-left: 3rem;
-  }
-  
-  .link:after {
-    width: 100%;
-    bottom: calc(var(--space-xxs)*-0.5);
+    margin-left: 6rem;
   }
 }
