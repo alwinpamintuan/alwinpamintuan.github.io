@@ -3,6 +3,7 @@ import Link from "next/link";
 import { classes } from "@utils/index";
 import styles from "./Header.module.css";
 import others from "@components/placeholder/Placeholder.module.css";
+import { EventEmitter } from "stream";
 
 type Props = {};
 
@@ -18,8 +19,18 @@ export function Header({}: Props) {
     "Contact",
   ];
 
-  const handleLinkClick = (link: string) => {
-    document.getElementById(link)?.scrollIntoView(true);
+  const handleLinkClick = (
+    event: React.MouseEvent<HTMLAnchorElement>,
+    link: string
+  ) => {
+    const div = document.getElementById(link);
+    div?.scrollIntoView(true);
+
+    const links = Array.from(document.getElementsByClassName(styles.link));
+    links?.forEach((link) => link.classList.remove(styles.activeLink));
+
+    const target = event.currentTarget;
+    target.classList.add(styles.activeLink);
   };
 
   useEffect(() => {
@@ -51,7 +62,7 @@ export function Header({}: Props) {
           <a
             className={styles.link}
             key={i}
-            onClick={() => handleLinkClick(link)}
+            onClick={(e) => handleLinkClick(e, link)}
           >
             {link}
           </a>
