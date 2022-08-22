@@ -1,5 +1,6 @@
 .full {
   height: calc(100vh - 9rem);
+  height: 200vh;
   display: flex;
   justify-content: center;
   align-items: center;
