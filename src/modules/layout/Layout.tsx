@@ -13,8 +13,16 @@ export function Layout({ title, children }: Props) {
     <div className={styles.container}>
       <Head>
         <title>
-          {title ? `${title} | Alwin Pamintuan.` : "Alwin Pamintuan | 🏃‍♂️💨 🦖"}
+          {title ? `${title} | Alwin Pamintuan.` : "🏃‍♂️💨 🦖 | Alwin Pamintuan"}
         </title>
+        <meta
+          name="description"
+          content="Alwin Pamintuan's portfolio site built with NextJS."
+        />
+        <meta
+          name="keywords"
+          content="software engineer,makati,HTML,CSS,JavaScript,NextJS"
+        />
         <link rel="icon" href="/assets/favicon.ico" />
       </Head>
 
