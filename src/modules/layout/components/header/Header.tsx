@@ -3,7 +3,6 @@ import Link from "next/link";
 import { classes } from "@utils/index";
 import styles from "./Header.module.css";
 import others from "@components/placeholder/Placeholder.module.css";
-import { EventEmitter } from "stream";
 
 type Props = {};
 
@@ -35,10 +34,12 @@ export function Header({}: Props) {
 
   useEffect(() => {
     const animationEls = document.querySelectorAll(
-      `.${others.rotating}, .${others.bobbing}`
+      `.${others.rotating}, .${others.bobbing}, .animated`
     );
+
     if (openBurger) {
       animationEls?.forEach((el) => {
+        console.log(el);
         el.classList.add("noanimation");
       });
     } else {

@@ -1,7 +1,6 @@
 import React from "react";
-import Link from "next/link";
 import styles from "./Footer.module.css";
-import { Socials } from "@components/socials";
+import { Socials } from "@components/index";
 
 type Props = {};
 

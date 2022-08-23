@@ -1,12 +1,12 @@
 import type { NextPage } from "next";
-import { Layout } from "@modules/layout";
-import { Placeholder } from "@components/placeholder";
-import { About } from "@modules/about";
+import { About, Layout } from "@modules/index";
+import { Placeholder } from "@components/index";
 
 const Home: NextPage = () => {
   return (
     <Layout>
-      <Placeholder />
+      {/* <Placeholder /> */}
+      <About />
     </Layout>
   );
 };

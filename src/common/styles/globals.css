@@ -13,7 +13,6 @@ html {
     var(--clr-neutral200),
     var(--clr-neutral50)
   );
-  background-attachment: fixed;
   min-height: 100vh;
 }
 
@@ -76,6 +75,12 @@ a:hover {
 
 .noanimation {
   animation: none !important;
+  transform: none !important;
+}
+
+.noanimation.animated {
+  transform-style: flat !important;
+  will-change: none !important;
 }
 
 @media (prefers-color-scheme: dark) {
