@@ -33,11 +33,22 @@ export function Header({}: Props) {
     target.classList.add(styles.activeLink);
   };
 
+  // Remove vanilla-tilt on portrait devices
   useEffect(() => {
-    // Remove vanilla-tilt on smaller devices
-    const tilt = document.querySelector(".animated") as HTMLVanillaTiltElement;
-    tilt?.vanillaTilt?.destroy();
+    const portrait = window.matchMedia("(orientation: portrait)");
 
+    addEventListener("load", (e) => {
+      if (portrait.matches) {
+        const tilt = document.querySelector(
+          ".animated"
+        ) as HTMLVanillaTiltElement;
+        tilt?.vanillaTilt?.destroy();
+        tilt.style.willChange = "unset";
+      }
+    });
+  }, []);
+
+  useEffect(() => {
     // Remove animations
     const animationEls = document.querySelectorAll(
       `.${others.rotating}, .${others.bobbing}, .animated`
