@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import VanillaTilt, { HTMLVanillaTiltElement } from "vanilla-tilt";
+import { HTMLVanillaTiltElement } from "vanilla-tilt";
 import Link from "next/link";
 import { classes } from "@utils/index";
 import styles from "./Header.module.css";
@@ -19,18 +19,21 @@ export function Header({}: Props) {
     "Contact",
   ];
 
-  const handleLinkClick = (
-    event: React.MouseEvent<HTMLAnchorElement>,
-    link: string
-  ) => {
+  const styleActiveLink = (target: any, link: string) => {
     const div = document.getElementById(link);
     div?.scrollIntoView(true);
 
     const links = Array.from(document.getElementsByClassName(styles.link));
     links?.forEach((link) => link.classList.remove(styles.activeLink));
 
-    const target = event.currentTarget;
     target.classList.add(styles.activeLink);
+  };
+
+  const handleLinkClick = (target: any, link: string) =>
+    styleActiveLink(target, link);
+
+  const handleLinkKeyPress = (event: any, link: string) => {
+    if (event.charCode === 13) styleActiveLink(event.currentTarget, link);
   };
 
   // Remove vanilla-tilt on portrait devices
@@ -79,7 +82,9 @@ export function Header({}: Props) {
           <a
             className={styles.link}
             key={i}
-            onClick={(e) => handleLinkClick(e, link)}
+            onClick={(e) => handleLinkClick(e.currentTarget, link)}
+            onKeyPress={(e) => handleLinkKeyPress(e, link)}
+            tabIndex={0}
           >
             {link}
           </a>

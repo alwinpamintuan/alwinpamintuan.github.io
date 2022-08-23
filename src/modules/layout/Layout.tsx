@@ -13,7 +13,7 @@ export function Layout({ title, children }: Props) {
     <div className={styles.container}>
       <Head>
         <title>
-          {title ? `${title} | Alwin Pamintuan.` : "🏃‍♂️💨 🦖 | Alwin Pamintuan"}
+          {title ? `${title} | Alwin Pamintuan.` : "Alwin Pamintuan 🏃‍♂️💨 🦖"}
         </title>
         <meta
           name="description"
