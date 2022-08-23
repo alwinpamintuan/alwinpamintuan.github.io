@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import VanillaTilt from "vanilla-tilt";
 import Link from "next/link";
 import { classes } from "@utils/index";
 import styles from "./Header.module.css";
@@ -33,13 +34,17 @@ export function Header({}: Props) {
   };
 
   useEffect(() => {
+    // Remove vanilla-tilt on smaller devices
+    const tilt = document.querySelector(".animated");
+    tilt?.vanillaTilt?.destroy();
+
+    // Remove animations
     const animationEls = document.querySelectorAll(
       `.${others.rotating}, .${others.bobbing}, .animated`
     );
 
     if (openBurger) {
       animationEls?.forEach((el) => {
-        console.log(el);
         el.classList.add("noanimation");
       });
     } else {
