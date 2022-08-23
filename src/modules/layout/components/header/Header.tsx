@@ -36,7 +36,7 @@ export function Header({}: Props) {
   useEffect(() => {
     // Remove vanilla-tilt on smaller devices
     const tilt = document.querySelector(".animated") as HTMLVanillaTiltElement;
-    tilt?.vanillaTilt.destroy();
+    tilt?.vanillaTilt?.destroy();
 
     // Remove animations
     const animationEls = document.querySelectorAll(
