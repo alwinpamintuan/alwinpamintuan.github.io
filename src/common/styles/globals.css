@@ -80,7 +80,7 @@ a:hover {
 
 .noanimation.animated {
   transform-style: flat !important;
-  will-change: none !important;
+  will-change: unset !important;
 }
 
 @media (prefers-color-scheme: dark) {

@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { HTMLVanillaTiltElement } from "vanilla-tilt";
 import Link from "next/link";
-import { classes } from "@utils/index";
+import { classes, toCamelCase } from "@utils/index";
 import styles from "./Header.module.css";
-import others from "@components/placeholder/Placeholder.module.css";
 
 type Props = {};
 
@@ -43,30 +42,16 @@ export function Header({}: Props) {
     addEventListener("load", (e) => {
       if (portrait.matches) {
         const tilt = document.querySelector(
-          ".animated"
+          ".vanillaTilt"
         ) as HTMLVanillaTiltElement;
         tilt?.vanillaTilt?.destroy();
         tilt.style.willChange = "unset";
       }
     });
+
+    const aboutLink = document.querySelector("#About");
+    styleActiveLink(aboutLink, toCamelCase("About"));
   }, []);
-
-  useEffect(() => {
-    // Remove animations
-    const animationEls = document.querySelectorAll(
-      `.${others.rotating}, .${others.bobbing}, .animated`
-    );
-
-    if (openBurger) {
-      animationEls?.forEach((el) => {
-        el.classList.add("noanimation");
-      });
-    } else {
-      animationEls?.forEach((el) => {
-        el.classList.remove("noanimation");
-      });
-    }
-  }, [openBurger]);
 
   return (
     <header className={styles.header}>
@@ -79,15 +64,17 @@ export function Header({}: Props) {
 
       <nav className={styles.menu} data-burger={openBurger}>
         {links.map((link, i) => (
-          <a
-            className={styles.link}
-            key={i}
-            onClick={(e) => handleLinkClick(e.currentTarget, link)}
-            onKeyPress={(e) => handleLinkKeyPress(e, link)}
-            tabIndex={0}
-          >
-            {link}
-          </a>
+          <Link href="/" key={i}>
+            <a
+              className={styles.link}
+              onClick={(e) => handleLinkClick(e.currentTarget, link)}
+              onKeyPress={(e) => handleLinkKeyPress(e, link)}
+              tabIndex={0}
+              id={toCamelCase(link)}
+            >
+              {link}
+            </a>
+          </Link>
         ))}
       </nav>
 
