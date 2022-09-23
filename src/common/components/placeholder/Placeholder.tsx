@@ -8,14 +8,14 @@ type Props = {};
 // Reusable component
 export const Placeholder = ({}: Props) => {
   return (
-    <>
-      <h1>
+    <div className={styles.container}>
+      <h3>
         This site is under development.
         <span className={styles.rotating}>&nbsp;🛠️</span>
-      </h1>
-      {/* <p>While waiting, check out my other profiles:</p>
+      </h3>
 
-      <Socials /> */}
-    </>
+      <p>While waiting, check out my other profiles:</p>
+      <Socials />
+    </div>
   );
 };

@@ -1,10 +1,23 @@
 import type { NextPage } from "next";
-import { About, Layout } from "@modules/index";
+import {
+  Layout,
+  About,
+  Education,
+  Experience,
+  Affiliations,
+  Projects,
+  Contact,
+} from "@modules/index";
 
 const Home: NextPage = () => {
   return (
     <Layout>
       <About />
+      {/* <Education />
+      <Experience />
+      <Affiliations />
+      <Projects />
+      <Contact /> */}
     </Layout>
   );
 };

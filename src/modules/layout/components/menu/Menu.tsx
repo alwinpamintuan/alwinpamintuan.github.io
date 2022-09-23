@@ -8,8 +8,11 @@ type Props = { links: Array<{ name: string; emoji: string }> };
 
 export function Menu({ links }: Props) {
   const styleActiveLink = (target: any, link: string) => {
-    const div = document.getElementById(link);
-    div?.scrollIntoView(true);
+    const div = document.getElementById(`${link}Div`);
+    div?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
 
     const links = Array.from(document.getElementsByClassName(styles.link));
     links?.forEach((link) => link.classList.remove(styles.activeLink));
