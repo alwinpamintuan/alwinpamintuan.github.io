@@ -15,10 +15,7 @@
 
   transform-style: preserve-3d;
   perspective: 1000px;
-<<<<<<< HEAD
-=======
   animation: spin 3s;
->>>>>>> ui-dev
 }
 
 .card::after {
@@ -37,8 +34,6 @@
   transform: translateZ(48px);
 }
 
-<<<<<<< HEAD
-=======
 @keyframes spin {
   0% {
     scale: 0;
@@ -51,7 +46,6 @@
   }
 }
 
->>>>>>> ui-dev
 @media (max-width: 768px) {
   .card {
     padding: var(--space-xs);

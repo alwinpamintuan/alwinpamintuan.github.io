@@ -6,13 +6,10 @@
   align-items: center;
   width: 100%;
   padding: var(--space-xxs);
-<<<<<<< HEAD
-=======
   height: 4rem;
 
   position: sticky;
   top: 0;
->>>>>>> ui-dev
 }
 
 .header::after {

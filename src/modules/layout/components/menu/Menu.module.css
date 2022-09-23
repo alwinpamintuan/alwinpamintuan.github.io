@@ -4,12 +4,8 @@
   justify-content: flex-end;
   gap: 1.75rem;
 
-<<<<<<< HEAD
-  position: absolute;
-=======
   position: sticky;
   margin-top: -4rem;
->>>>>>> ui-dev
   padding: var(--space-xxs);
   top: 0.25rem;
   right: var(--space-xxs);
