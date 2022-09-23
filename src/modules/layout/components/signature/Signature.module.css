@@ -1,0 +1,29 @@
+.signature {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.33rem;
+  background-color: var(--clr-white);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.copyright {
+  background-color: var(--clr-neutral200);
+  padding: 0.66rem;
+  border-radius: 0.5rem;
+  width: fit-content;
+}
+
+@media (max-width: 1024px) {
+  .signature {
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: 0;
+    background-color: unset;
+  }
+}

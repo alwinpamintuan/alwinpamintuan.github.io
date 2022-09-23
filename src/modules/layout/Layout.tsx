@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import { Header, Footer } from "./components/";
+import { Header } from "./components/";
 import styles from "@styles/Layout.module.css";
 
 type Props = {
@@ -29,8 +29,6 @@ export function Layout({ title, children }: Props) {
       <Header />
 
       <div className={styles.main}>{children}</div>
-
-      <Footer />
     </div>
   );
 }
