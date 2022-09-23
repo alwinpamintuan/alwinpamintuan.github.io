@@ -5,11 +5,7 @@
   display: flex;
   align-items: center;
   width: 100%;
-  position: sticky;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  margin-top: 0.75rem;
-  top: 0px;
+  padding: var(--space-xxs);
 }
 
 .header::after {
@@ -42,6 +38,35 @@
 
 .pamintuan {
   font-weight: 800;
+}
+
+.themeToggle {
+  border-style: none;
+  padding: 0.5rem;
+  will-change: filter;
+  background-color: transparent;
+}
+
+.themeToggle:hover {
+  background-color: transparent;
+}
+
+.themeToggle[data-dark="false"] {
+  filter: grayscale(0);
+}
+
+.themeToggle[data-dark="false"]:hover {
+  filter: grayscale(0);
+  text-shadow: 0px 0px 16px var(--clr-neutral500);
+}
+
+.themeToggle[data-dark="true"] {
+  filter: grayscale(1);
+}
+
+.themeToggle[data-dark="true"]:hover {
+  filter: grayscale(0.5);
+  text-shadow: 0px 0px 16px yellow;
 }
 
 @media (max-width: 1024px) {

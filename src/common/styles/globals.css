@@ -73,18 +73,27 @@ a:hover {
   transition: 150ms ease-in-out;
 }
 
-.noanimation {
-  animation: none !important;
-  transform: none !important;
+[data-dark] {
+  --clr-black: #fff;
+  --clr-white: #000;
+  --clr-neutral900: #fafafa;
+  --clr-neutral800: #e5e5e5;
+  --clr-neutral700: #d4d4d4;
+  --clr-neutral600: #a3a3a3;
+  --clr-neutral500: #737373;
+  --clr-neutral400: #525252;
+  --clr-neutral300: #404040;
+  --clr-neutral200: #262626;
+  --clr-neutral50: #171717;
+
+  background-image: #000;
+  color: var(--clr-black);
+  fill: var(--clr-black);
+  transition: all 0.25s ease;
 }
 
-.noanimation.animated {
-  transform-style: flat !important;
-  will-change: unset !important;
-}
-
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   html:not(img) {
     filter: invert(1) hue-rotate(180deg);
   }
-}
+} */

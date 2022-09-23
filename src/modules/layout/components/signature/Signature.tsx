@@ -1,12 +1,13 @@
 import React from "react";
 import styles from "./Signature.module.css";
 
-type Props = {};
+type Props = { children?: any };
 
-export function Signature({}: Props) {
+export function Signature({ children }: Props) {
   return (
     <div className={styles.signature}>
       <p className={styles.copyright}>🏃‍♂️💨 🦖</p>
+      {children}
     </div>
   );
 }

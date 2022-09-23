@@ -24,20 +24,7 @@ export function Menu({ links }: Props) {
     if (event.charCode === 13) styleActiveLink(event.currentTarget, link);
   };
 
-  // Remove vanilla-tilt on portrait devices
   useEffect(() => {
-    const portrait = window.matchMedia("(orientation: portrait)");
-
-    addEventListener("load", (e) => {
-      if (portrait.matches) {
-        const tilt = document.querySelector(
-          ".vanillaTilt"
-        ) as HTMLVanillaTiltElement;
-        tilt?.vanillaTilt?.destroy();
-        tilt.style.willChange = "unset";
-      }
-    });
-
     const aboutLink = document.querySelector("#AboutLink");
     styleActiveLink(aboutLink, toCamelCase("About"));
   }, []);

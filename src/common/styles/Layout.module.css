@@ -1,24 +1,17 @@
 .container {
   display: block;
   margin: auto;
-  max-width: 80vw;
-}
-
-.main {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
-  justify-content: center;
-
-  height: calc(100vh - 10rem);
-  max-height: calc(100vh - 10rem);
-  overflow: hidden;
+  padding: 0 var(--space-xxs);
 }
 
 @media (max-width: 1536px) {
   .container {
     max-width: 100vw;
-    padding: 0 var(--space-xs);
+  }
+}
+
+@media (max-width: 512px) {
+  .container {
+    padding: 0 0.5rem;
   }
 }

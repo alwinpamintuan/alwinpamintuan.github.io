@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import styles from "./Header.module.css";
 import { Menu } from "../menu/Menu";
@@ -7,6 +7,13 @@ import { Signature } from "../signature/Signature";
 type Props = {};
 
 export function Header({}: Props) {
+  const [dark, setDark] = useState(false);
+  const toggleDark = () => {
+    setDark(!dark);
+    const body = document.documentElement;
+    body.toggleAttribute("data-dark");
+  };
+
   const links = [
     {
       name: "About",
@@ -35,16 +42,27 @@ export function Header({}: Props) {
   ];
 
   return (
-    <header className={styles.header}>
-      <Link href="/">
-        <a className={styles.brand}>
-          <span className={styles.alwin}>Alwin </span>
-          <span className={styles.pamintuan}>Pamintuan</span>
-        </a>
-      </Link>
-      <Menu links={links} />
+    <>
+      <header className={styles.header}>
+        <Link href="/">
+          <a className={styles.brand}>
+            <span className={styles.alwin}>Alwin </span>
+            <span className={styles.pamintuan}>Pamintuan</span>
+          </a>
+        </Link>
 
-      <Signature />
-    </header>
+        <Signature>
+          <button
+            className={styles.themeToggle}
+            data-dark={dark}
+            onClick={toggleDark}
+          >
+            💡
+          </button>
+        </Signature>
+      </header>
+
+      <Menu links={links} />
+    </>
   );
 }

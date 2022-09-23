@@ -1,27 +1,25 @@
 import React from "react";
-import { Socials, Tilt } from "@components/index";
-import styles from "@styles/About.module.css";
+import { Socials, Tilt, Section } from "@components/index";
+import styles from "./About.module.css";
 import { classes } from "@utils/index";
 
 type Props = {};
 
 export function About({}: Props) {
   return (
-    <>
+    <Section>
       <Tilt
         options={{
-          speed: 300,
-          glare: true,
-          "max-glare": 0.6,
-          "full-page-listening": true,
+          speed: 10,
         }}
-        className={classes(styles.card, "animated", "vanillaTilt")}
+        className={styles.card}
+        id={`AboutDiv`}
       >
         <h4>Hello, I am</h4>
-        <h1>John Alwin Pamintuan</h1>
+        <h1 className={styles.popout}>John Alwin Pamintuan</h1>
         <p>Computer Science Graduate 🎓</p>
-        <Socials></Socials>
+        <Socials />
       </Tilt>
-    </>
+    </Section>
   );
 }

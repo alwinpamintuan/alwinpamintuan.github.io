@@ -28,7 +28,7 @@ export function Layout({ title, children }: Props) {
 
       <Header />
 
-      <div className={styles.main}>{children}</div>
+      {children}
     </div>
   );
 }
