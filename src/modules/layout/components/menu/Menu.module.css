@@ -6,7 +6,7 @@
 
   position: sticky;
   margin-top: -4rem;
-  padding: var(--space-xxs);
+  padding: 0.66rem var(--space-xxs);
   top: 0.25rem;
   right: var(--space-xxs);
 }
