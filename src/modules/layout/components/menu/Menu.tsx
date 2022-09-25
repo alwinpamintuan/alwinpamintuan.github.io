@@ -35,7 +35,7 @@ export function Menu({ links }: Props) {
   return (
     <nav className={styles.menu}>
       {links.map((link, i) => (
-        <a
+        <div
           className={styles.link}
           onClick={(e) =>
             handleLinkClick(e.currentTarget, toCamelCase(link.name))
@@ -47,7 +47,7 @@ export function Menu({ links }: Props) {
         >
           <span className={styles.linkEmoji}>{link.emoji}</span>
           <span className={styles.linkName}> {link.name}</span>
-        </a>
+        </div>
       ))}
     </nav>
   );
