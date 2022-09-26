@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { HTMLVanillaTiltElement } from "vanilla-tilt";
-import { classes, toCamelCase } from "@utils/index";
-import Link from "next/link";
+import React, { useEffect } from "react";
+import { toCamelCase } from "@utils/index";
 import styles from "./Menu.module.css";
 
 type Props = { links: Array<{ name: string; emoji: string }> };
@@ -28,8 +26,11 @@ export function Menu({ links }: Props) {
   };
 
   useEffect(() => {
+    // Default div is About
     const aboutLink = document.querySelector("#AboutLink");
     styleActiveLink(aboutLink, toCamelCase("About"));
+
+    // Adjust dark mode
   }, []);
 
   return (

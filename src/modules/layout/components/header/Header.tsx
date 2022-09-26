@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import styles from "./Header.module.css";
 import { Menu } from "../menu/Menu";
@@ -8,11 +8,20 @@ type Props = {};
 
 export function Header({}: Props) {
   const [dark, setDark] = useState(false);
+
   const toggleDark = () => {
+    const html = document.documentElement;
     setDark(!dark);
-    const body = document.documentElement;
-    body.toggleAttribute("data-dark");
+    html.toggleAttribute("data-dark");
   };
+
+  useEffect(() => {
+    const prefersDarkMode = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
+
+    if (prefersDarkMode) toggleDark();
+  }, []);
 
   const links = [
     {
