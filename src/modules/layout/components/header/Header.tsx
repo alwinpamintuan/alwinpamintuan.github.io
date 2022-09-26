@@ -29,16 +29,8 @@ export function Header({}: Props) {
       emoji: "👤",
     },
     {
-      name: "Education",
-      emoji: "🎓",
-    },
-    {
       name: "Experience",
       emoji: "💼",
-    },
-    {
-      name: "Affiliations",
-      emoji: "🤝",
     },
     {
       name: "Projects",
