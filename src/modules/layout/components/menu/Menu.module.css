@@ -19,11 +19,7 @@
 }
 
 .link:hover {
-  color: var(--clr-neutral900);
-  --shadow-value: 0px 0px 9px 3px var(--clr-neutral300);
-  -webkit-box-shadow: var(--shadow-value);
-  -moz-box-shadow: var(--shadow-value);
-  box-shadow: var(--shadow-value);
+  color: #fbd786;
 }
 
 .linkEmoji {
@@ -32,11 +28,7 @@
 
 .activeLink {
   color: var(--clr-neutral50);
-  background-color: var(--clr-black);
-}
-
-.activeLink:hover {
-  color: var(--clr-neutral50);
+  background: var(--clr-gradient);
 }
 
 .hidden {
@@ -69,7 +61,6 @@
 
     display: flex;
     justify-content: center;
-    gap: 2vw;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
   }
