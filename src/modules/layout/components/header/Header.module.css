@@ -4,17 +4,18 @@
 .header {
   display: flex;
   align-items: center;
-  width: 100%;
-  padding: var(--space-xxs);
-  height: 4rem;
-
+  margin-top: var(--space-xs);
+  padding: var(--space-xxs) var(--spacew-l);
   position: sticky;
   top: 0;
+  height: 4rem;
 }
 
 .header::after {
   content: "";
   position: absolute;
+  width: 100%;
+  height: 4rem;
   z-index: -1;
   inset: 0;
   backdrop-filter: blur(8px);
@@ -23,11 +24,13 @@
 /* Logo */
 .brand {
   flex-shrink: 0;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-family: "MuseoModerno", cursive;
   letter-spacing: 0.05rem;
-  padding: 0.66rem;
   border-radius: 0.5rem;
+  background: var(--clr-gradient);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .brand:hover {
@@ -73,39 +76,9 @@
 }
 
 @media (max-width: 1024px) {
-  .menu {
-    z-index: 1;
-    position: fixed;
-    top: 0;
-    right: -100%;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-end;
-    gap: var(--space-xs);
-
-    padding-top: var(--space-m);
-    padding-right: var(--space-xs);
-    height: 100vh;
-
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    transition: all 0.15s ease-in-out;
-  }
-
-  .menu::after {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    inset: 0;
-    background-color: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(8px);
-  }
-
-  .signature {
-    display: block;
-    margin-left: auto;
-    margin-right: 0;
+  .header {
+    padding: var(--space-xxs);
+    margin-top: 0;
   }
 }
 

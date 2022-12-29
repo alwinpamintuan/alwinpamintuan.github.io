@@ -3,12 +3,6 @@
   flex-grow: 1;
   justify-content: flex-end;
   gap: 1.75rem;
-
-  position: sticky;
-  margin-top: -4rem;
-  padding: 0.66rem var(--space-xxs);
-  top: 0.25rem;
-  right: var(--space-xxs);
 }
 
 .link {
@@ -19,8 +13,9 @@
   position: relative;
 
   border-radius: 0.25rem;
-  padding: 0.5rem;
+  padding: 0.33rem;
   font-weight: 500;
+  font-size: 1rem;
 }
 
 .link:hover {
