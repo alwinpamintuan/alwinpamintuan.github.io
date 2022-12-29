@@ -6,7 +6,7 @@ body {
 }
 
 html {
-  font-size: clamp(14px, 15px + 0.390625vw, 1.25rem);
+  font-size: clamp(14px, 15px + 0.390625vw, 1.125rem);
   scroll-behavior: smooth;
   background-image: linear-gradient(
     130deg,
@@ -40,6 +40,7 @@ html {
   --clr-neutral700: #404040;
   --clr-neutral800: #262626;
   --clr-neutral900: #171717;
+  --clr-gradient: linear-gradient(to right, #c6ffdd, #fbd786, #f7797d);
 
   /* Fixed spacing */
   --space-xxs: 1rem;
@@ -90,8 +91,4 @@ a:hover {
   color: var(--clr-black);
   fill: var(--clr-black);
   transition: all 0.25s ease;
-}
-
-h1 {
-  font-size: 1.5rem;
 }

@@ -47,10 +47,12 @@ export function Header({}: Props) {
       <header className={styles.header}>
         <Link href="/">
           <a className={styles.brand}>
-            <span className={styles.alwin}>Alwin </span>
-            <span className={styles.pamintuan}>Pamintuan</span>
+            <span className={styles.alwin}>alwin</span>
+            <span className={styles.pamintuan}>pamintuan</span>
           </a>
         </Link>
+
+        <Menu links={links} />
 
         <Signature>
           <button
@@ -62,8 +64,6 @@ export function Header({}: Props) {
           </button>
         </Signature>
       </header>
-
-      <Menu links={links} />
     </>
   );
 }
