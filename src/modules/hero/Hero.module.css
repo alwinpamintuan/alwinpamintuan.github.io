@@ -14,7 +14,6 @@
 }
 
 .iam {
-  display: inline-block;
   opacity: 0;
   animation: fadeUp 1s;
   animation-delay: 1s;
@@ -53,6 +52,7 @@
     opacity: 0;
     scale: 10;
     color: var(--clr-pink);
+    transform: translateX(4ch);
   }
   50% {
     color: var(--clr-yellow);
@@ -62,6 +62,7 @@
     color: var(--clr-light-green);
     opacity: 1;
     scale: 1;
+    transform: translateX(0);
   }
 }
 
