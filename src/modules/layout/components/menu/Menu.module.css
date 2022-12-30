@@ -8,12 +8,9 @@
 .link {
   border: none;
   background: none;
-  transition: color 0.15s ease-in-out;
   cursor: pointer;
-  position: relative;
+  transition: color 150ms linear;
 
-  border-radius: 0.25rem;
-  padding: 0.33rem;
   font-weight: 500;
   font-size: 1rem;
 }
@@ -27,8 +24,9 @@
 }
 
 .activeLink {
-  color: var(--clr-neutral50);
-  background: var(--clr-gradient);
+  background: var(--clr-gradient-min);
+  background-clip: text;
+  color: transparent;
 }
 
 .hidden {
@@ -70,6 +68,6 @@
     position: absolute;
     z-index: -1;
     inset: 0;
-    background-color: var(--clr-white);
+    background-color: var(--clr-black);
   }
 }

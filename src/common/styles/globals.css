@@ -3,17 +3,17 @@
 html,
 body {
   font-family: "Ubuntu", sans-serif;
+  color: var(--clr-white);
 }
 
 html {
   font-size: clamp(14px, 15px + 0.390625vw, 1.125rem);
   scroll-behavior: smooth;
-  background-image: linear-gradient(
-    130deg,
-    var(--clr-neutral200),
-    var(--clr-neutral50)
-  );
   min-height: 100vh;
+}
+
+body {
+  background-color: var(--clr-black);
 }
 
 * {
@@ -29,18 +29,24 @@ html {
 
 :root {
   /* Colors */
-  --clr-white: #fff;
+  --clr-white: #ddd;
   --clr-black: #000;
-  --clr-neutral50: #fafafa;
-  --clr-neutral200: #e5e5e5;
-  --clr-neutral300: #d4d4d4;
-  --clr-neutral400: #a3a3a3;
-  --clr-neutral500: #737373;
-  --clr-neutral600: #525252;
-  --clr-neutral700: #404040;
-  --clr-neutral800: #262626;
-  --clr-neutral900: #171717;
-  --clr-gradient: linear-gradient(to right, #c6ffdd, #fbd786, #f7797d);
+  --clr-light-green: #c6ffdd;
+  --clr-yellow: #fbd786;
+  --clr-pink: #f7797d;
+
+  /* Gradients */
+  --clr-gradient: linear-gradient(
+    to right,
+    var(--clr-light-green),
+    var(--clr-yellow),
+    var(--clr-pink)
+  );
+  --clr-gradient-min: linear-gradient(
+    to right,
+    var(--clr-light-green),
+    var(--clr-yellow)
+  );
 
   /* Fixed spacing */
   --space-xxs: 1rem;
@@ -65,30 +71,15 @@ html {
 }
 
 a {
-  color: inherit;
+  color: var(--clr-white);
   text-decoration: none;
 }
 
 a:hover {
-  color: var(--clr-neutral400);
+  color: var(--clr-yellow);
   transition: 150ms ease-in-out;
 }
 
 [data-dark] {
-  --clr-black: #fff;
-  --clr-white: #000;
-  --clr-neutral900: #fafafa;
-  --clr-neutral800: #e5e5e5;
-  --clr-neutral700: #d4d4d4;
-  --clr-neutral600: #a3a3a3;
-  --clr-neutral500: #737373;
-  --clr-neutral400: #525252;
-  --clr-neutral300: #404040;
-  --clr-neutral200: #262626;
-  --clr-neutral50: #171717;
-
-  background-image: #000;
-  color: var(--clr-black);
-  fill: var(--clr-black);
   transition: all 0.25s ease;
 }

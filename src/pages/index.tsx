@@ -3,13 +3,25 @@ import { Layout, About, Experience, Projects, Contact } from "@modules/index";
 
 const Home: NextPage = () => {
   return (
-    <Layout>
-      <About />
-      {/*
+    <>
+      <Layout>
+        <About />
+        {/*
       <Experience />
       <Projects />
       <Contact /> */}
-    </Layout>
+      </Layout>
+      <svg>
+        <filter id="noiseFilter">
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency="6.29"
+            numOctaves="6"
+            stitchTiles="stitch"
+          />
+        </filter>
+      </svg>
+    </>
   );
 };
 
