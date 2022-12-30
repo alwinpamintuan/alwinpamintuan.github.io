@@ -21,18 +21,6 @@ export function Menu({ links }: Props) {
   const handleLinkClick = (target: any, link: string) =>
     styleActiveLink(target, link);
 
-  const handleLinkKeyPress = (event: any, link: string) => {
-    if (event.charCode === 13) styleActiveLink(event.currentTarget, link);
-  };
-
-  useEffect(() => {
-    // Default div is About
-    const aboutLink = document.querySelector("#AboutLink");
-    styleActiveLink(aboutLink, toCamelCase("About"));
-
-    // Adjust dark mode
-  }, []);
-
   return (
     <nav className={styles.menu}>
       {links.map((link, i) => (
@@ -41,7 +29,6 @@ export function Menu({ links }: Props) {
           onClick={(e) =>
             handleLinkClick(e.currentTarget, toCamelCase(link.name))
           }
-          onKeyPress={(e) => handleLinkKeyPress(e, toCamelCase(link.name))}
           tabIndex={0}
           id={`${toCamelCase(link.name)}Link`}
           key={i}
