@@ -3,6 +3,7 @@ import Link from "next/link";
 import styles from "./Header.module.css";
 import { Menu } from "../menu/Menu";
 import { Signature } from "../signature/Signature";
+import { links } from "@utils/menu";
 
 type Props = {};
 
@@ -22,25 +23,6 @@ export function Header({}: Props) {
 
     if (prefersDarkMode) toggleDark();
   }, []);
-
-  const links = [
-    {
-      name: "About",
-      emoji: "👤",
-    },
-    {
-      name: "Experience",
-      emoji: "💼",
-    },
-    {
-      name: "Projects",
-      emoji: "🎨",
-    },
-    {
-      name: "Contact",
-      emoji: "📞",
-    },
-  ];
 
   return (
     <>
