@@ -10,25 +10,13 @@ import {
 
 const Home: NextPage = () => {
   return (
-    <>
-      <Layout>
-        <Hero />
-        <About />
-        <Experience />
-        <Projects />
-        <Contact />
-      </Layout>
-      <svg>
-        <filter id="noiseFilter">
-          <feTurbulence
-            type="fractalNoise"
-            baseFrequency="6.29"
-            numOctaves="6"
-            stitchTiles="stitch"
-          />
-        </filter>
-      </svg>
-    </>
+    <Layout>
+      <Hero />
+      <About />
+      <Experience />
+      <Projects />
+      <Contact />
+    </Layout>
   );
 };
 

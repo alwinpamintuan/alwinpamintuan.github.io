@@ -21,6 +21,33 @@ export function Menu({ links }: Props) {
   const handleLinkClick = (target: any, link: string) =>
     styleActiveLink(target, link);
 
+  useEffect(() => {
+    // Menu active link on scroll
+    const sections = document.querySelectorAll("section");
+    const navLi = document.querySelectorAll("nav div");
+    navLi.forEach((link, index) => {
+      link.classList.add(sections[index].getAttribute("id")!);
+    });
+
+    window.onscroll = () => {
+      var current = "";
+
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop;
+        if (window.pageYOffset >= sectionTop) {
+          current = section.getAttribute("id")!;
+        }
+      });
+
+      navLi.forEach((li) => {
+        li.classList.remove(styles.activeLink);
+        if (li.classList.contains(current)) {
+          li.classList.add(styles.activeLink);
+        }
+      });
+    };
+  }, []);
+
   return (
     <nav className={styles.menu}>
       {links.map((link, i) => (
