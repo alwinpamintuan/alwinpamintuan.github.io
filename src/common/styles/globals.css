@@ -13,7 +13,7 @@ html {
 }
 
 body {
-  background-color: var(--clr-black);
+  background: var(--clr-background);
 }
 
 * {
@@ -34,6 +34,7 @@ body {
   --clr-light-green: #c6ffdd;
   --clr-yellow: #fbd786;
   --clr-pink: #f7797d;
+  --clr-background: linear-gradient(#000000, #101010);
 
   /* Gradients */
   --clr-gradient: linear-gradient(
@@ -84,6 +85,7 @@ a:hover {
   --clr-white: #350507;
   --clr-black: #ffeab8;
   --clr-yellow: #e94057;
+  --clr-background: linear-gradient(#ffffff, #f7ece9);
 
   /* Gradients */
   --clr-gradient: linear-gradient(to right, #8a2387, #e94057, #f27121);
