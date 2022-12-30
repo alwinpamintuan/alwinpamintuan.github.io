@@ -15,3 +15,5 @@ export function toCamelCase(text: string) {
       (word, camelWord) => word[0].toUpperCase() + word.slice(1) + camelWord
     );
 }
+
+export const aosConfig = { offset: 24, duration: 1000, once: true };
