@@ -11,14 +11,18 @@ export function Contact({}: Props) {
         <h3>You can reach me through the following channels:</h3>
         <ul className={styles.contacts}>
           <li>
-            <a href="mailto: alwinpamintuan@gmail.com" target="_blank">
+            <a
+              href="mailto: alwinpamintuan@gmail.com"
+              target="_blank"
+              rel="noreferrer"
+            >
               💌 alwinpamintuan@gmail.com
             </a>
           </li>
         </ul>
 
         <p className={styles.note}>
-          That's it for now but I might add more soon!
+          That&apos;s it for now but I might add more soon!
         </p>
       </div>
     </Section>

@@ -7,7 +7,7 @@ type Props = {};
 export const Placeholder = ({}: Props) => {
   return (
     <div className={styles.container}>
-      Oops! It seems that I haven't worked on this section yet.
+      <p>Oops! It seems that I haven&apos;t worked on this section yet.</p>
     </div>
   );
 };
