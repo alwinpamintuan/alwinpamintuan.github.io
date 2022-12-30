@@ -31,6 +31,11 @@
   background: var(--clr-gradient);
   background-clip: text;
   -webkit-text-fill-color: transparent;
+
+  opacity: 0;
+  animation: fadeDown 1s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
 }
 
 .brand:hover {
@@ -68,6 +73,7 @@
 
 .themeToggle[data-dark="true"] {
   filter: grayscale(1);
+  color: var(--clr-yellow);
 }
 
 .themeToggle[data-dark="true"]:hover {
@@ -85,5 +91,16 @@
 @media (max-width: 512px) {
   .pamintuan {
     display: none;
+  }
+}
+
+@keyframes fadeDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

@@ -2,17 +2,66 @@
   background: var(--clr-gradient-min);
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  opacity: 0;
+  animation: fadeUp 1s;
+  animation-delay: 1.25s;
+  animation-fill-mode: forwards;
 }
 
-@keyframes spin {
-  0% {
-    scale: 0;
-    transform: rotateY(0deg) rotateZ(180deg);
-  }
+.hello {
+  display: inline-block;
+  animation: helloFadeIn 1s;
+}
 
+.iam {
+  display: inline-block;
+  opacity: 0;
+  animation: fadeUp 1s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+}
+
+.subtitle {
+  opacity: 0;
+  animation: fadeUp 1s;
+  animation-delay: 1.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
   100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes helloFadeIn {
+  0% {
+    opacity: 0;
+    scale: 10;
+    color: var(--clr-pink);
+  }
+  50% {
+    color: var(--clr-yellow);
+    scale: 10;
+  }
+  100% {
+    color: var(--clr-light-green);
+    opacity: 1;
     scale: 1;
-    transform: rotateY(360deg);
   }
 }
 

@@ -3,13 +3,17 @@
   flex-grow: 1;
   justify-content: flex-end;
   gap: 1.75rem;
+  opacity: 0;
+  animation: fadeDown 1s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
 }
 
 .link {
   border: none;
   background: none;
   cursor: pointer;
-  transition: color 150ms linear;
+  transition: color 500ms linear;
 
   font-weight: 500;
   font-size: 1rem;
@@ -69,5 +73,16 @@
     z-index: -1;
     inset: 0;
     background-color: var(--clr-black);
+  }
+}
+
+@keyframes fadeDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
