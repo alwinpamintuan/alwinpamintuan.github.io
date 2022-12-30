@@ -8,20 +8,20 @@ import { links } from "@utils/menu";
 type Props = {};
 
 export function Header({}: Props) {
-  const [dark, setDark] = useState(false);
+  const [dark, setDark] = useState(true);
 
-  const toggleDark = () => {
+  const toggleLight = () => {
     const html = document.documentElement;
     setDark(!dark);
-    html.toggleAttribute("data-dark");
+    html.toggleAttribute("data-light");
   };
 
   useEffect(() => {
-    const prefersDarkMode = window.matchMedia(
-      "(prefers-color-scheme: dark)"
+    const prefersLightMode = window.matchMedia(
+      "(prefers-color-scheme: light)"
     ).matches;
 
-    if (prefersDarkMode) toggleDark();
+    if (prefersLightMode) toggleLight();
   }, []);
 
   return (
@@ -40,7 +40,7 @@ export function Header({}: Props) {
           <button
             className={styles.themeToggle}
             data-dark={dark}
-            onClick={toggleDark}
+            onClick={toggleLight}
           >
             💡
           </button>

@@ -16,7 +16,7 @@
 }
 
 .link:hover {
-  color: #fbd786;
+  color: var(--clr-yellow);
 }
 
 .linkEmoji {

@@ -80,8 +80,19 @@ a:hover {
   transition: color 150ms linear;
 }
 
-[data-dark] {
+[data-light] {
+  --clr-white: #350507;
+  --clr-black: #ffeab8;
+  --clr-yellow: #e94057;
+
+  /* Gradients */
+  --clr-gradient: linear-gradient(to right, #8a2387, #e94057, #f27121);
+  --clr-gradient-min: linear-gradient(to right, #e94057, #f27121);
   transition: all 0.25s ease;
+}
+
+[data-light] a:hover {
+  color: #e94057;
 }
 
 ul,
