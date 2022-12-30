@@ -1,0 +1,24 @@
+.emphasis {
+  background: var(--clr-gradient-min);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes spin {
+  0% {
+    scale: 0;
+    transform: rotateY(0deg) rotateZ(180deg);
+  }
+
+  100% {
+    scale: 1;
+    transform: rotateY(360deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    padding: var(--space-xs);
+    margin: var(--space-s);
+  }
+}

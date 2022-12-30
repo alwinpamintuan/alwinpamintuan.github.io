@@ -5,10 +5,5 @@ import styles from "./Contact.module.css";
 type Props = {};
 
 export function Contact({}: Props) {
-  return (
-    <Section id={`ContactDiv`}>
-      <h1>Contact</h1>
-      <Placeholder />
-    </Section>
-  );
+  return <Section id={`ContactDiv`} header={"How can you reach me?"}></Section>;
 }

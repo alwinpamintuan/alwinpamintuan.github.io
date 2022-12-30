@@ -1,15 +1,13 @@
 .main {
   display: flex;
-  align-items: center;
   flex-direction: column;
-  text-align: center;
-
-  min-height: calc(100vh - 5rem);
-  padding-top: 5rem;
-  padding-bottom: 5rem;
+  min-height: calc(100vh - 6rem);
+  padding: var(--space-s) var(--spacew-l);
 }
 
 .main[data-justify="center"] {
   padding-top: 0;
   justify-content: center;
+  align-items: center;
+  text-align: center;
 }

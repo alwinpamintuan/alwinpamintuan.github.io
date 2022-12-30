@@ -1,15 +1,22 @@
 import type { NextPage } from "next";
-import { Layout, About, Experience, Projects, Contact } from "@modules/index";
+import {
+  Layout,
+  Hero,
+  About,
+  Experience,
+  Projects,
+  Contact,
+} from "@modules/index";
 
 const Home: NextPage = () => {
   return (
     <>
       <Layout>
+        <Hero />
         <About />
-        {/*
-      <Experience />
-      <Projects />
-      <Contact /> */}
+        <Experience />
+        <Projects />
+        <Contact />
       </Layout>
       <svg>
         <filter id="noiseFilter">
