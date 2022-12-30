@@ -9,6 +9,7 @@
 
 .profileIcon {
   width: 32px;
+  fill: var(--clr-white);
 }
 
 .profileIcon:hover {

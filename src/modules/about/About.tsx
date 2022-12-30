@@ -8,17 +8,10 @@ type Props = {};
 export function About({}: Props) {
   return (
     <Section id={`AboutDiv`} justify="center">
-      <Tilt
-        options={{
-          speed: 10,
-        }}
-        className={styles.card}
-      >
-        <h4>Hello, I am</h4>
-        <h1 className={styles.popout}>John Alwin Pamintuan</h1>
-        <p>Computer Science Graduate 🎓</p>
-        <Socials />
-      </Tilt>
+      <h4>Hello, I am</h4>
+      <h1 className={styles.emphasis}>John Alwin Pamintuan</h1>
+      <p>Data Engineer and Frontend Developer 🗃️👩‍💻</p>
+      <Socials />
     </Section>
   );
 }
