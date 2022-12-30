@@ -9,6 +9,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  opacity: 0;
+  animation: fadeUp 1s;
+  animation-delay: 1.25s;
+  animation-fill-mode: forwards;
 }
 
 .copyright {
@@ -25,5 +30,18 @@
     margin-right: 0;
     background-color: unset;
     padding: 0;
+  }
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+    visibility: 1;
+  }
+  100% {
+    display: inline-block;
+    opacity: 1;
+    transform: translateY(0);
   }
 }
