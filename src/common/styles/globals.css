@@ -77,9 +77,14 @@ a {
 
 a:hover {
   color: var(--clr-yellow);
-  transition: 150ms ease-in-out;
+  transition: color 150ms linear;
 }
 
 [data-dark] {
   transition: all 0.25s ease;
+}
+
+ul,
+ol {
+  list-style: none;
 }

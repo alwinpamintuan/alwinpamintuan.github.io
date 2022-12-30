@@ -13,19 +13,13 @@
 }
 
 .sectionHeader {
-  font-size: 1.5rem;
-  background: var(--clr-yellow);
-  background-clip: text;
-  color: transparent;
+  font-size: 1rem;
+  color: var(--clr-yellow);
 }
 
 @media (max-width: 1024px) {
   .main {
     padding: var(--space-m) var(--space-xxs);
     margin-top: 0;
-  }
-
-  .sectionHeader {
-    font-size: 1.25rem;
   }
 }
