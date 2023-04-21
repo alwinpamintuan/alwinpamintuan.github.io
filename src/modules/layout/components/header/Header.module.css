@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   margin-top: var(--space-xs);
-  padding: var(--space-xxs) var(--spacew-l);
+  padding: var(--space-xxs) var(--spacew-xl);
   position: sticky;
   top: 0;
   height: 4rem;

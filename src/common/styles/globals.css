@@ -55,6 +55,7 @@ body {
   --space-s: 3rem;
   --space-m: 6rem;
   --space-l: 12rem;
+  --space-xl: 16rem;
 
   /* Spacing based on viewport width */
   --spacew-xxs: 1vw;
@@ -62,6 +63,7 @@ body {
   --spacew-s: 3vw;
   --spacew-m: 6vw;
   --spacew-l: 12vw;
+  --spacew-xl: 16vw;
 
   /* Spacing based on viewport height */
   --spaceh-xxs: 1vh;
@@ -69,6 +71,7 @@ body {
   --spaceh-s: 3vh;
   --spaceh-m: 6vh;
   --spaceh-l: 12vh;
+  --spaceh-xl: 16vh;
 }
 
 a {
