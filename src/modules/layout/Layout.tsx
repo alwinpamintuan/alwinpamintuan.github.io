@@ -1,6 +1,6 @@
 import React from "react";
-import { Header } from "./components/";
-import styles from "@styles/Layout.module.css";
+import { Header, Background } from "./components/";
+import styles from "./Layout.module.css";
 
 type Props = {
   title?: string;
@@ -9,9 +9,12 @@ type Props = {
 
 export function Layout({ title, children }: Props) {
   return (
-    <div className={styles.container}>
-      <Header />
-      {children}
-    </div>
+    <>
+      <Background />
+      <div className={styles.container}>
+        <Header />
+        {children}
+      </div>
+    </>
   );
 }

@@ -1,0 +1,16 @@
+{
+  "contacts": [
+    {
+      "name": "Email",
+      "link": "mailto:alwinpamintuan@gmail.com"
+    },
+    {
+      "name": "Github",
+      "link": "https://github.com/alwinpamintuan"
+    },
+    {
+      "name": "LinkedIn",
+      "link": "https://www.linkedin.com/in/alwinpamintuan/"
+    }
+  ]
+}

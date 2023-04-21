@@ -1,6 +1,5 @@
 export { Layout } from "./layout/Layout";
 export { About } from "./about/About";
-export { Experience } from "./experience/Experience";
-export { Projects } from "./projects/Projects";
+export { Work } from "./work/Work";
 export { Contact } from "./contact/Contact";
 export { Hero } from "./hero/Hero";

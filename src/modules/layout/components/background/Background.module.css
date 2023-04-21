@@ -1,0 +1,62 @@
+.blob {
+  position: fixed;
+  height: 50vmax;
+  width: 50vmax;
+  border-radius: 100%;
+  filter: blur(300vmax);
+}
+
+.blob1 {
+  top: 10%;
+  left: 0;
+  animation: blob1Animation 15s infinite linear;
+  background: linear-gradient(#e66465, #9198e5);
+}
+
+.blob2 {
+  top: 25%;
+  right: 0;
+  animation: blob2Animation 25s infinite linear;
+  background: linear-gradient(#fac71f, #2ba851);
+}
+
+@keyframes blob1Animation {
+  0% {
+    transform: rotate(0deg) translate(10vmax) rotate(0deg);
+    scale: 1 2;
+    opacity: 16%;
+  }
+
+  50% {
+    scale: 2 1;
+    opacity: 28%;
+  }
+
+  100% {
+    transform: rotate(360deg) translate(10vmax) rotate(-360deg);
+    scale: 1 2;
+    opacity: 16%;
+  }
+}
+
+@keyframes blob2Animation {
+  0% {
+    transform: rotate(0deg) translate(-5vmax) rotate(0deg);
+    scale: 2 1;
+    opacity: 12%;
+    filter: blur(512px) grayscale(0.6);
+  }
+
+  50% {
+    scale: 1 3;
+    opacity: 16%;
+    filter: blur(512px) grayscale(0);
+  }
+
+  100% {
+    transform: rotate(-360deg) translate(-10vmax) rotate(360deg);
+    scale: 2 1;
+    opacity: 12%;
+    filter: blur(512px) grayscale(0.6);
+  }
+}

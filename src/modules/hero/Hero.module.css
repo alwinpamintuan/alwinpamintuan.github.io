@@ -1,3 +1,10 @@
+.scaled {
+  scale: 1.5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .emphasis {
   background: var(--clr-gradient-min);
   background-clip: text;
@@ -6,11 +13,14 @@
   animation: fadeUp 1s;
   animation-delay: 1.25s;
   animation-fill-mode: forwards;
+  font-size: 2.5rem;
 }
 
 .hello {
   display: inline-block;
   animation: helloFadeIn 1s;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 .iam {
@@ -18,6 +28,8 @@
   animation: fadeUp 1s;
   animation-delay: 1s;
   animation-fill-mode: forwards;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 .subtitle {
@@ -25,6 +37,7 @@
   animation: fadeUp 1s;
   animation-delay: 1.5s;
   animation-fill-mode: forwards;
+  font-size: 1.5rem;
 }
 
 @keyframes fadeIn {
