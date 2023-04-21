@@ -10,8 +10,13 @@ export function Contact({}: Props) {
     <Section id={`ContactDiv`}>
       <h1>How can you reach me?</h1>
       <div className={styles.container}>
-        {contacts.map((contact) => (
-          <a href={contact.link} target="_blank" rel="noopener noreferrer">
+        {contacts.map((contact, index) => (
+          <a
+            href={contact.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            key={index}
+          >
             {contact.name}
           </a>
         ))}

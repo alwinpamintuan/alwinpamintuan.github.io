@@ -16,4 +16,12 @@ export function toCamelCase(text: string) {
     );
 }
 
+export function importAll(r: any) {
+  let images: object = {};
+  r.keys().map((item: string, index: number) => {
+    images[item.replace("./", "") as keyof Object] = r(item);
+  });
+  return images;
+}
+
 export const aosConfig = { offset: 24, duration: 1000, once: true };
