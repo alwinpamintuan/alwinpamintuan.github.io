@@ -74,6 +74,10 @@ body {
   --spaceh-xl: 16vh;
 }
 
+h1 {
+  color: var(--clr-yellow);
+}
+
 a {
   color: var(--clr-white);
   text-decoration: none;
