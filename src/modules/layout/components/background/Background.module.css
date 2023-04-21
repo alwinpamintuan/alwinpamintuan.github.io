@@ -7,14 +7,14 @@
 }
 
 .blob1 {
-  top: 0;
+  top: 10%;
   left: 0;
   animation: blob1Animation 15s infinite linear;
   background: linear-gradient(#e66465, #9198e5);
 }
 
 .blob2 {
-  top: 0;
+  top: 25%;
   right: 0;
   animation: blob2Animation 25s infinite linear;
   background: linear-gradient(#fac71f, #2ba851);
