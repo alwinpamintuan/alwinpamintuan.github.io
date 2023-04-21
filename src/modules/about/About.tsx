@@ -1,5 +1,5 @@
 import React from "react";
-import { Socials, Tilt, Section, Placeholder } from "@components/index";
+import { Socials, Section, Placeholder } from "@components/index";
 import styles from "./About.module.css";
 import { classes } from "@utils/index";
 
