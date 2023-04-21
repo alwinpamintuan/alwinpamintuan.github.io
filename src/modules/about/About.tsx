@@ -40,10 +40,8 @@ export function About({}: Props) {
             </blockquote>
             <p>but I do not know at what yet so I guess we</p>
             <blockquote cite="Meet the Robinsons" className={styles.quote}>
-              <i>keep moving forward</i>
+              <i>keep moving forward</i>.
             </blockquote>
-
-            <p> for now hehe.</p>
           </div>
         </div>
 
