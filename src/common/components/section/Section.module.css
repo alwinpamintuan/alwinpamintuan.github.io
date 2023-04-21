@@ -3,6 +3,9 @@
   flex-direction: column;
   min-height: calc(100vh - 6rem);
   padding: var(--space-m) var(--spacew-l);
+  gap: 0.75rem;
+
+  background: linear-gradient(transparent 99.5%, var(--clr-black));
 }
 
 .main[data-justify="center"] {
@@ -13,8 +16,10 @@
 }
 
 .sectionHeader {
-  font-size: 1rem;
   color: var(--clr-yellow);
+  width: max-content;
+  padding-bottom: 0.3rem;
+  border-bottom: 3px solid var(--clr-yellow);
 }
 
 @media (max-width: 1024px) {

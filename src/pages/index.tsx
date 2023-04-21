@@ -1,20 +1,12 @@
 import type { NextPage } from "next";
-import {
-  Layout,
-  Hero,
-  About,
-  Experience,
-  Projects,
-  Contact,
-} from "@modules/index";
+import { Layout, Hero, About, Work, Contact } from "@modules/index";
 
 const Home: NextPage = () => {
   return (
     <Layout>
       <Hero />
       <About />
-      <Experience />
-      <Projects />
+      <Work />
       <Contact />
     </Layout>
   );

@@ -4,13 +4,13 @@ const links = [
     emoji: "👤",
   },
   {
-    name: "Experience",
+    name: "Work",
     emoji: "💼",
   },
-  {
-    name: "Projects",
-    emoji: "🎨",
-  },
+  // {
+  //   name: "Projects",
+  //   emoji: "🎨",
+  // },
   {
     name: "Contact",
     emoji: "📞",
