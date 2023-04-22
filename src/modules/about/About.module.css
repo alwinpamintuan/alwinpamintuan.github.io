@@ -8,7 +8,6 @@
   height: 5rem;
   width: 50%;
   object-fit: cover;
-  /* width: auto; */
 }
 
 .column {
@@ -29,11 +28,11 @@
 .intro {
   line-height: 1.33rem;
   padding-right: var(--spacew-s);
-  width: 40%;
+  min-width: 434px;
 }
 
 .techstack {
-  width: calc(60% - 1rem);
+  width: calc(60% - 3rem);
 }
 
 .quote {

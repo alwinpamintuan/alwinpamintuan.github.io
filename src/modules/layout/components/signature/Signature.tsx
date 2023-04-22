@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./Signature.module.css";
 
 type Props = { children?: any };

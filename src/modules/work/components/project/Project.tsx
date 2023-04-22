@@ -1,7 +1,3 @@
-import React from "react";
-import { Placeholder, Section } from "@components/index";
-import styles from "./Project.module.css";
-
 type Props = {
   title: string;
   type: string;

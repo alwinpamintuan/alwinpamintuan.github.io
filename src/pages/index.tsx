@@ -1,5 +1,5 @@
+import { About, Contact, Hero, Layout, Work } from "@modules/index";
 import type { NextPage } from "next";
-import { Layout, Hero, About, Work, Contact } from "@modules/index";
 
 const Home: NextPage = () => {
   return (

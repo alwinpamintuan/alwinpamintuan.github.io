@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import { links } from "@utils/menu";
 import Link from "next/link";
-import styles from "./Header.module.css";
+import { useEffect, useState } from "react";
 import { Menu } from "../menu/Menu";
 import { Signature } from "../signature/Signature";
-import { links } from "@utils/menu";
+import styles from "./Header.module.css";
 
 type Props = {};
 

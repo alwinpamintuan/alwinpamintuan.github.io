@@ -1,4 +1,3 @@
-import React from "react";
 import { Section } from "@components/index";
 import { Project } from "./components/project/Project";
 

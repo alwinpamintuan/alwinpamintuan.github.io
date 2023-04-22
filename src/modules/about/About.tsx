@@ -1,8 +1,7 @@
-import React from "react";
-import Image from "next/image";
 import { Section } from "@components/index";
-import styles from "./About.module.css";
 import { classes, importAll } from "@utils/index";
+import Image from "next/image";
+import styles from "./About.module.css";
 
 type Props = {};
 
@@ -21,14 +20,20 @@ export function About({}: Props) {
         <div className={classes(styles.column, styles.intro)}>
           <h1>Who am I?</h1>
           <div>
-            <img
+            <Image
               className={styles.img}
               src="https://media.giphy.com/media/amrNGnZUeWhZC/giphy.gif"
-            ></img>
-            <img
+              alt="Ash Ketchum (Pokemon) GIF from Giphy"
+              width={217}
+              height={97}
+            ></Image>
+            <Image
               className={styles.img}
               src="https://media.tenor.com/b0slpjCSFB4AAAAC/meet-the-robinsons-keep-moving-forward.gif"
-            ></img>
+              alt="Keep moving forward. (Meet the Robinsons) GIF from Tenor"
+              width={217}
+              height={97}
+            ></Image>
           </div>
 
           <div className={styles.lines}>
@@ -60,6 +65,7 @@ export function About({}: Props) {
                     height={48}
                     width={48}
                     key={i}
+                    alt={String(current[icon as keyof Object])}
                   ></Image>
                 );
               })}
@@ -80,6 +86,7 @@ export function About({}: Props) {
                     height={32}
                     width={32}
                     key={i}
+                    alt={String(current[icon as keyof Object])}
                   ></Image>
                 );
               })}

@@ -1,6 +1,5 @@
-import React from "react";
-import styles from "./Socials.module.css";
 import { classes } from "@utils/index";
+import styles from "./Socials.module.css";
 
 type Props = {};
 

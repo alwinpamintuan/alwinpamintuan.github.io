@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
-import styles from "./Section.module.css";
+import { aosConfig } from "@utils/index";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { aosConfig } from "@utils/index";
+import { useEffect } from "react";
+import styles from "./Section.module.css";
 
 type Props = { children?: any; id?: string; justify?: any; header?: string };
 

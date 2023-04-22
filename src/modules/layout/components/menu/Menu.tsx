@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
 import { toCamelCase } from "@utils/index";
+import { useEffect } from "react";
 import styles from "./Menu.module.css";
 
 type Props = { links: Array<{ name: string; emoji: string }> };
