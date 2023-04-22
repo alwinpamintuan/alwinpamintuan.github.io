@@ -4,7 +4,7 @@
     @return {String}            A string containing the combined classnames
 */
 export function classes(...classes: string[]) {
-  return classes.join(" ");
+  return classes.join(" ").trim();
 }
 
 export function toCamelCase(text: string) {
