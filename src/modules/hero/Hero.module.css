@@ -17,6 +17,7 @@
 }
 
 .hello {
+  --hello-scale: 10;
   display: inline-block;
   animation: helloFadeIn 1s;
   font-size: 1.5rem;
@@ -63,16 +64,13 @@
 @keyframes helloFadeIn {
   0% {
     opacity: 0;
-    scale: 10;
-    color: var(--clr-pink);
+    scale: var(--hello-scale);
     transform: translateX(4ch);
   }
   50% {
-    color: var(--clr-yellow);
-    scale: 10;
+    scale: var(--hello-scale);
   }
   100% {
-    color: var(--clr-light-green);
     opacity: 1;
     scale: 1;
     transform: translateX(0);
@@ -83,5 +81,9 @@
   .card {
     padding: var(--space-xs);
     margin: var(--space-s);
+  }
+
+  .hello {
+    --hello-scale: 3;
   }
 }
