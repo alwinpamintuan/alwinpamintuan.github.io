@@ -1,6 +1,5 @@
-import React from "react";
-import { Header, Background } from "./components/";
 import styles from "./Layout.module.css";
+import { Background, Header } from "./components/";
 
 type Props = {
   title?: string;

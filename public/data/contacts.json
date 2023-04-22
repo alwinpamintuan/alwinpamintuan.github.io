@@ -12,5 +12,9 @@
       "name": "LinkedIn",
       "link": "https://www.linkedin.com/in/alwinpamintuan/"
     }
-  ]
+  ],
+  "default": {
+    "name": "",
+    "link": ""
+  }
 }

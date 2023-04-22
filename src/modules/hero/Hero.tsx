@@ -1,5 +1,4 @@
-import React from "react";
-import { Socials, Section } from "@components/index";
+import { Section, Socials } from "@components/index";
 import styles from "./Hero.module.css";
 
 type Props = {};

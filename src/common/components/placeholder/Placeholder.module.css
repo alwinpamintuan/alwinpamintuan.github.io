@@ -2,3 +2,17 @@
   display: flex;
   flex-direction: column;
 }
+
+.loading {
+  animation: rotating 1s infinite linear;
+}
+
+@keyframes rotating {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(360);
+  }
+}

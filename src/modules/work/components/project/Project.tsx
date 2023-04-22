@@ -1,5 +1,3 @@
-import React from "react";
-import { Placeholder, Section } from "@components/index";
 import styles from "./Project.module.css";
 
 type Props = {
@@ -10,10 +8,18 @@ type Props = {
   tech: Array<string>;
 };
 
-export function Project({ title, description, url, tech }: Props) {
+export function Project({ title, type, description, url, tech }: Props) {
   return (
-    <>
-      <h1>{title}</h1>
-    </>
+    <a
+      className={styles.projectContainer}
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <h1 className={styles.title}>{title}</h1>
+      <p className={styles.type}>{type}</p>
+      <p className={styles.description}>{description}</p>
+      <p className={styles.tech}>{tech.join(", ")}</p>
+    </a>
   );
 }

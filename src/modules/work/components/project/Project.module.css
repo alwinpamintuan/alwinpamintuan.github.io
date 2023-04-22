@@ -1,0 +1,26 @@
+.projectContainer {
+  max-width: 60ch;
+  padding-bottom: 5ch;
+  z-index: 9999;
+  will-change: auto;
+}
+
+.title {
+  padding-bottom: 0;
+  margin-bottom: 0.25rem;
+}
+
+.type {
+  font-size: 0.75rem;
+  font-style: italic;
+  padding-bottom: 1rem;
+}
+
+.description {
+  padding-bottom: 1rem;
+}
+
+.tech {
+  font-size: 0.75rem;
+  color: var(--clr-pink);
+}

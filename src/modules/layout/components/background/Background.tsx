@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
-import styles from "./Background.module.css";
 import { classes } from "@utils/index";
+import styles from "./Background.module.css";
 
 type Props = {};
 

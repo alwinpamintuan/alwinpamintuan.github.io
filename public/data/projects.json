@@ -3,23 +3,30 @@
     {
       "title": "Identifying Fake News in Filipino Articles with Recurrent Neural Networks",
       "type": "Undergraduate Research Project",
-      "description": "Investigated recurrent neural networks as a smaller alternative to transfer learning models for easier deployment of fake news classifiers in the Filipino language.\n\nSubmitted in fulfillment of the requirement in CMSC 190 Special Problems. It was also nominated for Best Research under the Computer Science Category as part of the 3rd ICS Undergraduate Research Symposium.",
+      "description": "Investigated recurrent neural networks as a smaller alternative to transfer learning models for easier deployment of fake news classifiers in the Filipino language.",
       "url": "",
       "tech": ["Python", "Tensorflow", "Keras", "scikit-learn", "Pandas"]
     },
     {
       "title": "Hotdog: A LOLCODE Interpreter",
       "type": "Undergraduate Project",
-      "description": "A collaboratory project in CMSC 124 Design and Implementation of Programming Languages where I developed the lexer, parser, and semantiker for the interpreter.",
+      "description": "A collaboratory project in CMSC 124 Design and Implementation of Programming Languages where I developed the backend of a LOLCODE interpreter.",
       "url": "https://jerichocalibuso.github.io/hotdog/",
-      "tech": ["ReactJS, JavaScript (ES6)"]
+      "tech": ["ReactJS", "JavaScript (ES6)"]
     },
     {
-      "title": "",
-      "type": "",
-      "description": "",
-      "url": "",
-      "tech": [""]
+      "title": "Raffler",
+      "type": "Side Project",
+      "description": "Raffler is a simple lottery app. Developed because I like that it is similar to Rappler. ",
+      "url": "https://alwinpamintuan.github.io/raffler/",
+      "tech": ["ReactJS", "PWA"]
     }
-  ]
+  ],
+  "default": {
+    "title": "",
+    "type": "",
+    "description": "",
+    "url": "",
+    "tech": [""]
+  }
 }
