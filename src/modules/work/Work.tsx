@@ -1,8 +1,9 @@
 import React from "react";
-import { Placeholder, Section } from "@components/index";
+import { Section } from "@components/index";
 import { Project } from "./components/project/Project";
-import { projects } from "public/data/projects.json";
-import styles from "./Work.module.css";
+
+import projectsJson from "public/data/projects.json";
+let projects = projectsJson.projects;
 
 type Props = {};
 

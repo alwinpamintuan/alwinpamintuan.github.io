@@ -1,7 +1,9 @@
 import React from "react";
 import { Section } from "@components/index";
 import styles from "./Contact.module.css";
-import { contacts } from "public/data/contacts.json";
+
+import contactsJson from "public/data/contacts.json";
+let contacts = contactsJson.contacts;
 
 type Props = {};
 
