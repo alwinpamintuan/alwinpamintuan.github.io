@@ -29,8 +29,6 @@ export function About({}: Props) {
               width={217}
               height={97}
               loading="lazy"
-              sizes="(min-width: 1024px) 217px,
-              217px"
             />
             <Image
               className={styles.img}
@@ -39,8 +37,6 @@ export function About({}: Props) {
               width={217}
               height={97}
               loading="lazy"
-              sizes="(min-width: 1024px) 217px,
-              50vw"
             />
           </div>
 
