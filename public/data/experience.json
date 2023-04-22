@@ -6,5 +6,11 @@
       "responsibilities": "",
       "url": ""
     }
-  ]
+  ],
+  "default": {
+    "title": "",
+    "company": "",
+    "responsibilities": "",
+    "url": ""
+  }
 }
