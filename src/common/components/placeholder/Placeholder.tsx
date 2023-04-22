@@ -4,9 +4,5 @@ type Props = {};
 
 // Reusable component
 export const Placeholder = ({}: Props) => {
-  return (
-    <div className={styles.container}>
-      <p>Oops! It seems that I haven&apos;t worked on this section yet.</p>
-    </div>
-  );
+  return <h1 className="loading">↻</h1>;
 };
