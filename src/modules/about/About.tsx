@@ -2,16 +2,18 @@ import { Section } from "@components/index";
 import { classes, importAll } from "@utils/index";
 import Image from "next/image";
 import styles from "./About.module.css";
+import ashWebp from "public/assets/content/ash.webp";
+import mtrWebp from "public/assets/content/meet-the-robinsons.webp";
 
 type Props = {};
 
 export function About({}: Props) {
   const current: object = importAll(
-    require.context("public/assets/stacknow", false, /public\/.*\.(svg)$/)
+    require.context("public/assets/stack/current", false, /public\/.*\.(svg)$/)
   );
 
   const previous: object = importAll(
-    require.context("public/assets/stackthen", false, /public\/.*\.(svg)$/)
+    require.context("public/assets/stack/others", false, /public\/.*\.(svg)$/)
   );
 
   return (
@@ -22,18 +24,24 @@ export function About({}: Props) {
           <div>
             <Image
               className={styles.img}
-              src="https://media.giphy.com/media/amrNGnZUeWhZC/giphy.gif"
+              src={ashWebp}
               alt="Ash Ketchum (Pokemon) GIF from Giphy"
               width={217}
               height={97}
-            ></Image>
+              loading="lazy"
+              sizes="(min-width: 1024px) 217px,
+              217px"
+            />
             <Image
               className={styles.img}
-              src="https://media.tenor.com/b0slpjCSFB4AAAAC/meet-the-robinsons-keep-moving-forward.gif"
+              src={mtrWebp}
               alt="Keep moving forward. (Meet the Robinsons) GIF from Tenor"
               width={217}
               height={97}
-            ></Image>
+              loading="lazy"
+              sizes="(min-width: 1024px) 217px,
+              50vw"
+            />
           </div>
 
           <div className={styles.lines}>
@@ -66,7 +74,8 @@ export function About({}: Props) {
                     width={48}
                     key={i}
                     alt={String(current[icon as keyof Object])}
-                  ></Image>
+                    loading="lazy"
+                  />
                 );
               })}
             </div>
@@ -87,7 +96,8 @@ export function About({}: Props) {
                     width={32}
                     key={i}
                     alt={String(current[icon as keyof Object])}
-                  ></Image>
+                    loading="lazy"
+                  />
                 );
               })}
             </div>
