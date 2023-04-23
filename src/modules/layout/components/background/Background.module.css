@@ -3,8 +3,7 @@
   height: 50vmax;
   width: 50vmax;
   border-radius: 100%;
-  filter: blur(300vmax);
-  will-change: auto;
+  filter: blur(128px);
 }
 
 .blob1 {
@@ -22,18 +21,20 @@
 }
 
 .blob1anim {
+  will-change: transform scale opacity;
   animation: blob1Animation 15s infinite linear;
   animation-delay: 1s;
 }
 
 .blob2anim {
+  will-change: transform scale opacity;
   animation: blob2Animation 25s infinite linear;
   animation-delay: 1s;
 }
 
 @keyframes blob1Animation {
   0% {
-    transform: rotate(0deg) translate(10vmax) rotate(0deg);
+    transform: rotate(0deg) translate3d(10vmax, 0, 0) rotate(0deg);
     scale: 1 2;
     opacity: 16%;
   }
@@ -44,7 +45,7 @@
   }
 
   100% {
-    transform: rotate(360deg) translate(10vmax) rotate(-360deg);
+    transform: rotate(360deg) translate3d(10vmax, 0, 0) rotate(-360deg);
     scale: 1 2;
     opacity: 16%;
   }
@@ -52,22 +53,19 @@
 
 @keyframes blob2Animation {
   0% {
-    transform: rotate(0deg) translate(-5vmax) rotate(0deg);
+    transform: rotate(0deg) translate3d(-5vmax, 0, 0) rotate(0deg);
     scale: 2 1;
     opacity: 12%;
-    filter: blur(512px) grayscale(0.6);
   }
 
   50% {
     scale: 1 3;
     opacity: 16%;
-    filter: blur(512px) grayscale(0);
   }
 
   100% {
-    transform: rotate(-360deg) translate(-10vmax) rotate(360deg);
+    transform: rotate(-360deg) translate3d(-10vmax, 0, 0) rotate(360deg);
     scale: 2 1;
     opacity: 12%;
-    filter: blur(512px) grayscale(0.6);
   }
 }
