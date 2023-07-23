@@ -18,7 +18,7 @@ export function About({}: Props) {
   console.log(current);
 
   return (
-    <Section id={`AboutDiv`} justify="center">
+    <Section id={`AboutDiv`} justify="center" header="About Me">
       <div className={styles.stack}>
         <h1>I've been using these a lot recently</h1>
         <div className={styles.row}>

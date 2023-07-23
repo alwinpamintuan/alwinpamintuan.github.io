@@ -15,7 +15,10 @@
 .sectionHeader {
   color: var(--clr-yellow);
   width: max-content;
-  padding-bottom: 1rem;
+  padding-bottom: 0.33rem;
+  border-bottom: 1px solid var(--clr-yellow);
+
+  font-size: 1rem;
 }
 
 @media (max-width: 1024px) {

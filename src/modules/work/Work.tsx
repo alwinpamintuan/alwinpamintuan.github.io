@@ -8,7 +8,7 @@ type Props = {};
 
 export function Work({}: Props) {
   return (
-    <Section id={`WorkDiv`}>
+    <Section id={`WorkDiv`} header="Here's what I have worked on">
       {projects.map((project, index) => {
         return (
           <Project
