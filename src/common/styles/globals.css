@@ -30,11 +30,12 @@ body {
 :root {
   /* Colors */
   --clr-white: #e8e8ed;
+  --clr-gray: #2c2a2a;
   --clr-black: #161616;
   --clr-light-green: #c6ffdd;
   --clr-yellow: #fbd786;
   --clr-pink: #f7797d;
-  --clr-background: linear-gradient(#000, var(--clr-black));
+  --clr-background: linear-gradient(#000, var(--clr-gray));
 
   /* Gradients */
   --clr-gradient: linear-gradient(
