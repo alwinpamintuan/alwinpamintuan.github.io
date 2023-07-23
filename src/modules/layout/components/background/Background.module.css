@@ -4,6 +4,7 @@
   width: 50vmax;
   border-radius: 100%;
   filter: blur(128px);
+  z-index: -99999;
 }
 
 .blob1 {
