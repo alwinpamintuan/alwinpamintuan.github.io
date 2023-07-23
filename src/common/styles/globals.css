@@ -103,7 +103,6 @@ a:hover {
 
 [data-light] div[class*="blob"] {
   mix-blend-mode: multiply !important;
-  filter: blur(128px) saturate(3) !important;
 }
 
 [data-light] a:hover {

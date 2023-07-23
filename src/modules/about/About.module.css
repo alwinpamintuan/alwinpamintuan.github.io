@@ -15,7 +15,7 @@
 }
 
 .stackIconContainer:hover {
-  outline: 3px solid var(--clr-gray);
+  outline: 3px solid var(--clr-yellow);
   filter: saturate(1);
 }
 
@@ -32,8 +32,8 @@
   left: -1rem;
   font-size: small;
   white-space: nowrap;
-  color: #e8e8ed;
-  background-color: var(--clr-gray);
+  color: var(--clr-black);
+  background-color: var(--clr-yellow);
   padding: 0.1rem 0.33rem;
   border-radius: 0.33rem;
 }

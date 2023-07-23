@@ -27,12 +27,13 @@ export function Header({}: Props) {
   return (
     <>
       <header className={styles.header}>
-        <Link href="/">
-          <a className={styles.brand}>
-            <span className={styles.alwin}>alwin</span>
-            <span className={styles.pamintuan}>pamintuan</span>
-          </a>
-        </Link>
+        <div
+          className={styles.logo}
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        >
+          <span className={styles.logoAt}>@</span>
+          <span className={styles.logoText}>alwinpamintuan</span>
+        </div>
 
         <Menu links={links} />
 
