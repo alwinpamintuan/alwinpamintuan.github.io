@@ -84,8 +84,8 @@ a {
 }
 
 a:hover {
-  filter: brightness(1.5) blur(0.8px);
-  transition: filter 0.25s;
+  filter: brightness(1.5) opacity(0.5);
+  transition: filter 0.2s;
 }
 
 [data-light] {
