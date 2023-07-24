@@ -37,6 +37,9 @@ body {
   --clr-pink: #f7797d;
   --clr-background: linear-gradient(#000, var(--clr-gray));
 
+  --clr-white-rgb: 232, 232, 237;
+  --clr-black-rgb: 44, 42, 42;
+
   /* Gradients */
   --clr-gradient: linear-gradient(
     to right,
@@ -93,16 +96,20 @@ a:hover {
   --clr-white: #161616;
   --clr-black: #fefefe;
   --clr-background: #fff;
-  --clr-yellow: #f7797d;
+  --clr-yellow: #db474c;
 
   /* Gradients */
   --clr-gradient: linear-gradient(to right, #8a2387, #e94057, #f27121);
   --clr-gradient-min: linear-gradient(to right, #e94057, #f27121);
+
+  --clr-black-rgb: 232, 232, 237;
+  --clr-white-rgb: 44, 42, 42;
   transition: all 0.25s ease;
 }
 
 [data-light] div[class*="blob"] {
-  mix-blend-mode: multiply !important;
+  opacity: 20% !important;
+  filter: blur(128px) saturate(1.5) brightness(1.5);
 }
 
 [data-light] a:hover {

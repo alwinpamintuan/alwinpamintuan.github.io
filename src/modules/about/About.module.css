@@ -10,8 +10,8 @@
 .stackIconContainer {
   border-radius: 0.33rem;
   padding: 1rem;
-  background: rgba(0, 0, 0, 0.1);
-  filter: saturate(0) brightness(1.33);
+  background: rgba(var(--clr-white-rgb), 0.1);
+  filter: saturate(0.5) brightness(0.5);
 }
 
 .stackIconContainer:hover {
