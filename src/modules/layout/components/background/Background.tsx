@@ -17,8 +17,8 @@ export function Background({}: Props) {
     <>
       <div
         className={classes(
-          styles.blob,
           styles.blob1,
+          styles.blob,
           isMobile ? "" : styles.blob1anim
         )}
       ></div>

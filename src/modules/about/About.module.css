@@ -1,59 +1,55 @@
-.emphasis {
-  background: var(--clr-gradient-min);
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.img {
-  height: 5rem;
-  width: 50%;
-  object-fit: cover;
-}
-
-.column {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
 .row {
   height: 100%;
   width: 100%;
   display: flex;
+  justify-content: center;
   gap: 1rem;
   flex-wrap: wrap;
 }
 
-.intro {
-  line-height: 1.33rem;
-  padding-right: var(--spacew-s);
-  min-width: 434px;
+.stackIconContainer {
+  border-radius: 0.33rem;
+  padding: 1rem;
+  background: rgba(var(--clr-white-rgb), 0.1);
+  filter: saturate(0.5) brightness(0.5);
 }
 
-.techstack {
-  width: calc(60% - 3rem);
+.stackIconContainer:hover {
+  outline: 3px solid var(--clr-yellow);
+  filter: saturate(1);
 }
 
-.quote {
-  font-weight: 600;
-  color: var(--clr-white);
-  filter: drop-shadow(0 0.01rem 0.1rem var(--clr-pink));
-  padding: 0.5rem 0;
+.stackIconContainer:hover .stackIcon {
+  transition: 0.1s;
+  transform: scale(1.1);
+}
+
+.stackIconContainer:hover .iconName {
+  display: block;
+  position: absolute;
+  text-align: center;
+  top: -1.33rem;
+  left: -1rem;
+  font-size: small;
+  white-space: nowrap;
+  color: var(--clr-black);
+  background-color: var(--clr-yellow);
+  padding: 0.1rem 0.33rem;
+  border-radius: 0.33rem;
+}
+
+.stackIcon {
+  position: relative;
+  object-fit: cover;
+}
+
+.iconName {
+  display: none;
 }
 
 @media (max-width: 1280px) {
   .card {
     padding: var(--space-xs);
     margin: var(--space-s);
-  }
-
-  .mainRow {
-    flex-direction: column;
-  }
-
-  .intro,
-  .techstack {
-    width: 100%;
   }
 }

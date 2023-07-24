@@ -11,9 +11,7 @@ export function Hero({}: Props) {
         <span className={styles.iam}>I am</span>
       </p>
       <h1 className={styles.emphasis}>John Alwin Pamintuan</h1>
-      <p className={styles.subtitle}>
-        Data Engineer and Frontend Developer 🗃️👩‍💻
-      </p>
+      <p className={styles.subtitle}>Data Engineer and Tech Enthusiast 🗃️👩‍💻</p>
 
       <div className={styles.scaled}>
         <Socials />

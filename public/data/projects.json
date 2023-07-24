@@ -5,19 +5,19 @@
       "type": "Undergraduate Research Project",
       "description": "Investigated recurrent neural networks as a smaller alternative to transfer learning models for easier deployment of fake news classifiers in the Filipino language.",
       "url": "",
-      "tech": ["Python", "Tensorflow", "Keras", "scikit-learn", "Pandas"]
+      "tech": ["Python", "Tensorflow", "Pandas"]
     },
     {
       "title": "Hotdog: A LOLCODE Interpreter",
       "type": "Undergraduate Project",
-      "description": "A collaboratory project in CMSC 124 Design and Implementation of Programming Languages where I developed the backend of a LOLCODE interpreter.",
+      "description": "A collaboratory project in CMSC 124 Design and Implementation of Programming Languages where I primarily worked on the logic of the interpreter.",
       "url": "https://jerichocalibuso.github.io/hotdog/",
       "tech": ["ReactJS", "JavaScript (ES6)"]
     },
     {
       "title": "Raffler",
       "type": "Side Project",
-      "description": "Raffler is a simple lottery app. Developed because I like that it is similar to Rappler. ",
+      "description": "Raffler is a simple lottery app. Developed because it sounds like Rappler. ",
       "url": "https://alwinpamintuan.github.io/raffler/",
       "tech": ["ReactJS", "PWA"]
     }

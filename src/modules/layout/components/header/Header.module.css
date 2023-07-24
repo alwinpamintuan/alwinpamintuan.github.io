@@ -23,13 +23,13 @@
 }
 
 /* Logo */
-.brand {
+.logo {
   flex-shrink: 0;
   font-size: 1.2rem;
   font-family: "MuseoModerno", cursive;
   letter-spacing: 0.05rem;
   border-radius: 0.5rem;
-  background: var(--clr-gradient);
+  background: var(--clr-white);
   background-clip: text;
   -webkit-text-fill-color: transparent;
 
@@ -39,16 +39,19 @@
   animation-fill-mode: forwards;
 }
 
-.brand:hover {
+.logo:hover {
   cursor: pointer;
   color: inherit;
 }
 
-.alwin {
+.logoAt {
   font-weight: 400;
+  background: var(--clr-gradient);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.pamintuan {
+.logoMain {
   font-weight: 800;
 }
 
@@ -90,7 +93,7 @@
 }
 
 @media (max-width: 512px) {
-  .pamintuan {
+  .logoMain {
     display: none;
   }
 }

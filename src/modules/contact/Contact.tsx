@@ -8,7 +8,7 @@ type Props = {};
 
 export function Contact({}: Props) {
   return (
-    <Section id={`ContactDiv`}>
+    <Section id={`ContactDiv`} header="My Contact Information">
       <h1>How can you reach me?</h1>
       <div className={styles.container}>
         {contacts.map((contact, index) => (

@@ -10,16 +10,17 @@
 }
 
 .link {
-  border: none;
-  background: none;
   cursor: pointer;
 
   font-weight: 500;
   font-size: 1rem;
+  border-radius: 0.33rem;
+  padding: 0.33rem 0.66rem;
 }
 
-.link:hover {
-  color: var(--clr-yellow);
+.link:not(.activeLink):hover {
+  color: var(--clr-white);
+  outline: 1px solid var(--clr-gray);
 }
 
 .linkEmoji {
@@ -27,9 +28,9 @@
 }
 
 .activeLink {
-  background: var(--clr-gradient-min);
-  background-clip: text;
-  color: transparent;
+  border-radius: 0.33rem;
+  background: var(--clr-white);
+  color: var(--clr-black);
 }
 
 .hidden {

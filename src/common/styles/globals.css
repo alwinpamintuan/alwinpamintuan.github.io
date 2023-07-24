@@ -1,8 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap");
 
 html,
 body {
-  font-family: "Ubuntu", sans-serif;
+  font-family: "Atkinson Hyperlegible", sans-serif;
+  word-wrap: break-word;
   color: var(--clr-white);
 }
 
@@ -30,11 +31,15 @@ body {
 :root {
   /* Colors */
   --clr-white: #e8e8ed;
+  --clr-gray: #2c2a2a;
   --clr-black: #161616;
   --clr-light-green: #c6ffdd;
   --clr-yellow: #fbd786;
   --clr-pink: #f7797d;
-  --clr-background: linear-gradient(#000, var(--clr-black));
+  --clr-background: linear-gradient(#000, var(--clr-gray));
+
+  --clr-white-rgb: 232, 232, 237;
+  --clr-black-rgb: 22, 22, 22;
 
   /* Gradients */
   --clr-gradient: linear-gradient(
@@ -75,7 +80,7 @@ body {
 }
 
 h1 {
-  color: var(--clr-yellow);
+  color: var(--clr-white);
 }
 
 a {
@@ -92,17 +97,20 @@ a:hover {
   --clr-white: #161616;
   --clr-black: #fefefe;
   --clr-background: #fff;
-  --clr-yellow: #f7797d;
+  --clr-yellow: #db474c;
 
   /* Gradients */
   --clr-gradient: linear-gradient(to right, #8a2387, #e94057, #f27121);
   --clr-gradient-min: linear-gradient(to right, #e94057, #f27121);
+
+  --clr-black-rgb: 232, 232, 237;
+  --clr-white-rgb: 44, 42, 42;
   transition: all 0.25s ease;
 }
 
 [data-light] div[class*="blob"] {
-  mix-blend-mode: multiply !important;
-  filter: blur(128px) saturate(3) !important;
+  opacity: 20% !important;
+  filter: blur(128px) saturate(1.5) brightness(1.5);
 }
 
 [data-light] a:hover {
