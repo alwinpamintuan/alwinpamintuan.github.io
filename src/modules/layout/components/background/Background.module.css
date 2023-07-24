@@ -3,7 +3,7 @@
   height: 50vmax;
   width: 50vmax;
   border-radius: 100%;
-  filter: blur(128px) saturate(0.5);
+  filter: blur(128px);
   z-index: -99999;
 }
 
