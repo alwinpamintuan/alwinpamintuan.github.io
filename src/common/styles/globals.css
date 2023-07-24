@@ -3,6 +3,7 @@
 html,
 body {
   font-family: "Atkinson Hyperlegible", sans-serif;
+  word-wrap: break-word;
   color: var(--clr-white);
 }
 
@@ -38,7 +39,7 @@ body {
   --clr-background: linear-gradient(#000, var(--clr-gray));
 
   --clr-white-rgb: 232, 232, 237;
-  --clr-black-rgb: 44, 42, 42;
+  --clr-black-rgb: 22, 22, 22;
 
   /* Gradients */
   --clr-gradient: linear-gradient(

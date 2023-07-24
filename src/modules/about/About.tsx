@@ -2,7 +2,6 @@ import { Section } from "@components/index";
 import { classes, importAll } from "@utils/index";
 import Image from "next/image";
 import styles from "./About.module.css";
-import { arrayBuffer } from "stream/consumers";
 
 type Props = {};
 
@@ -20,7 +19,7 @@ export function About({}: Props) {
   return (
     <Section id={`AboutDiv`} justify="center" header="About Me">
       <div className={styles.stack}>
-        <h1>I've been using these a lot recently</h1>
+        <h2>I've been using these a lot recently</h2>
         <div className={styles.row}>
           {Object.keys(current).map((icon, i) => {
             const name = icon.split("/").pop()?.split(".")[0];

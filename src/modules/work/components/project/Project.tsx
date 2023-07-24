@@ -11,15 +11,25 @@ type Props = {
 export function Project({ title, type, description, url, tech }: Props) {
   return (
     <a
-      className={styles.projectContainer}
       href={url}
       target="_blank"
       rel="noopener noreferrer"
+      className={styles.flex}
     >
-      <h1 className={styles.title}>{title}</h1>
-      <p className={styles.type}>{type}</p>
-      <p className={styles.description}>{description}</p>
-      <p className={styles.tech}>{tech.join(", ")}</p>
+      <div className={styles.projectContainer}>
+        <h2 className={styles.title}>{title}</h2>
+        <p className={styles.type}>{type}</p>
+        <p className={styles.description}>{description}</p>
+        <div className={styles.row}>
+          {tech.map((tech, index) => {
+            return (
+              <p className={styles.tech} key={index}>
+                {tech}
+              </p>
+            );
+          })}
+        </div>
+      </div>
     </a>
   );
 }
