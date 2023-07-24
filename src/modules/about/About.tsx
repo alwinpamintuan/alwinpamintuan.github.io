@@ -19,13 +19,13 @@ export function About({}: Props) {
   return (
     <Section id={`AboutDiv`} justify="center" header="About Me">
       <div className={styles.stack}>
-        <h2>I've been using these a lot recently</h2>
+        <h2>I&apos;ve been using these a lot recently</h2>
         <div className={styles.row}>
           {Object.keys(current).map((icon, i) => {
             const name = icon.split("/").pop()?.split(".")[0];
 
             return (
-              <div className={styles.stackIconContainer}>
+              <div className={styles.stackIconContainer} key={i}>
                 <div className={styles.stackIcon}>
                   <Image
                     src={String(
@@ -35,7 +35,6 @@ export function About({}: Props) {
                     )}
                     height={36}
                     width={48}
-                    key={i}
                     alt={name}
                     loading="lazy"
                   />
@@ -54,7 +53,7 @@ export function About({}: Props) {
             const name = icon.split("/").pop()?.split(".")[0];
 
             return (
-              <div className={styles.stackIconContainer}>
+              <div className={styles.stackIconContainer} key={i}>
                 <div className={styles.stackIcon}>
                   <Image
                     src={String(
@@ -64,7 +63,6 @@ export function About({}: Props) {
                     )}
                     height={24}
                     width={36}
-                    key={i}
                     alt={name}
                     loading="lazy"
                   />
