@@ -39,10 +39,6 @@
 
 @media (max-width: 1024px) {
   .link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
     line-height: 1.25rem;
   }
 
@@ -62,9 +58,8 @@
     min-width: 100vw;
 
     display: flex;
-    justify-content: center;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    justify-content: space-evenly;
+    padding: 0.5rem 10%;
   }
 
   .menu::after {

@@ -9,7 +9,6 @@ body {
 
 html {
   font-size: clamp(14px, 15px + 0.390625vw, 1.25rem);
-  scroll-behavior: smooth;
   min-height: 100vh;
 }
 
