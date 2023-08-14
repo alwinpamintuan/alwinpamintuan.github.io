@@ -14,17 +14,20 @@
   filter: saturate(0.5) brightness(0.5);
 }
 
-.stackIconContainer:hover {
+.stackIconContainer:hover,
+.inViewStackIconContainer {
   outline: 3px solid var(--clr-yellow);
   filter: saturate(1);
 }
 
-.stackIconContainer:hover .stackIcon {
-  transition: 0.1s;
+.stackIconContainer:hover .stackIcon,
+.inViewStackIconContainer .stackIcon {
+  transition: all 0.1s;
   transform: scale(1.1);
 }
 
-.stackIconContainer:hover .iconName {
+.stackIconContainer:hover .iconName,
+.inViewStackIconContainer .iconName {
   display: block;
   position: absolute;
   text-align: center;
