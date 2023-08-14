@@ -14,21 +14,15 @@ export function Background({}: Props) {
   }, []);
 
   return (
-    <>
-      <div
-        className={classes(
-          styles.blob1,
-          styles.blob,
-          isMobile ? "" : styles.blob1anim
-        )}
-      ></div>
-      <div
-        className={classes(
-          styles.blob,
-          styles.blob2,
-          isMobile ? "" : styles.blob2anim
-        )}
-      ></div>
-    </>
+    <div className={styles.overlay}>
+      <img
+        src="/assets/background/yellow-blob.webp"
+        className={classes(styles.blob1, styles.blob)}
+      ></img>
+      <img
+        src="/assets/background/pink-blob.webp"
+        className={classes(styles.blob2, styles.blob)}
+      ></img>
+    </div>
   );
 }
