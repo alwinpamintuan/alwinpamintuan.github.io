@@ -1,7 +1,7 @@
 .main {
   display: flex;
   flex-direction: column;
-  min-height: calc(100vh - 6rem);
+  min-height: calc(100dvh - 6rem);
   padding: var(--space-m) var(--spacew-xl);
 }
 
@@ -25,5 +25,6 @@
   .main {
     padding: var(--space-m) var(--space-xxs);
     margin-top: 0;
+    min-height: calc(100dvh);
   }
 }
