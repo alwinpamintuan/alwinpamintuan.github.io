@@ -10,6 +10,7 @@ body {
 html {
   font-size: clamp(14px, 15px + 0.390625vw, 1.25rem);
   min-height: 100dvh;
+  overflow-x: clip;
 }
 
 body {

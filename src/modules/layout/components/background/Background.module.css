@@ -3,6 +3,7 @@
   height: 100vmax;
   border-radius: 100%;
   z-index: -99999;
+  overflow: clip;
 }
 
 .blob1 {
