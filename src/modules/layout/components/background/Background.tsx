@@ -9,7 +9,6 @@ export function Background({}: Props) {
 
   useEffect(() => {
     console.log(window.navigator.userAgent);
-    console.log(/Mobi/i.test(window.navigator.userAgent));
     setIsMobile(/Mobi/i.test(window.navigator.userAgent));
   }, []);
 
