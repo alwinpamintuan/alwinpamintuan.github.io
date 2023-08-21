@@ -34,3 +34,8 @@
 
   background-color: rgba(var(--clr-white-rgb), 0.3);
 }
+
+.overlay {
+  max-width: 100dvw;
+  overflow: hidden;
+}
