@@ -9,14 +9,14 @@ export function Background({}: Props) {
   const [isMobile, setIsMobile] = useState(true);
 
   useEffect(() => {
-    console.log(window.navigator.userAgent);
-    setIsMobile(/Mobi/i.test(window.navigator.userAgent));
+    const hasMobileUserAgent = /Mobi/i.test(window.navigator.userAgent);
+    setIsMobile(hasMobileUserAgent);
 
     const cursor = document.querySelector(`.${styles.cursor}`) as HTMLElement;
     const slowBlob = document.querySelector(`.${styles.blob1}`) as HTMLElement;
     const fastBlob = document.querySelector(`.${styles.blob2}`) as HTMLElement;
 
-    if (cursor && slowBlob && fastBlob) {
+    if (!hasMobileUserAgent && cursor && slowBlob && fastBlob) {
       document.addEventListener("mousemove", (e) => {
         let x = e.pageX;
         let y = e.pageY;
