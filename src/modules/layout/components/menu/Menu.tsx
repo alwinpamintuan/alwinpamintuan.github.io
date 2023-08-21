@@ -34,7 +34,7 @@ export function Menu({ links }: Props) {
 
       sections.forEach((section) => {
         const sectionTop = section.offsetTop;
-        if (window.scrollY >= sectionTop + window.innerHeight * 0.33) {
+        if (window.scrollY >= sectionTop + window.innerHeight * 0.2) {
           current = section.getAttribute("id")!;
         }
       });
