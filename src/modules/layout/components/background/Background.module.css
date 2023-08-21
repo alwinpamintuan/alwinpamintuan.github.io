@@ -1,9 +1,10 @@
 .blob {
-  position: absolute;
+  position: fixed;
   height: 100vmax;
   border-radius: 100%;
   z-index: -99999;
   overflow: clip;
+  pointer-events: none !important;
 }
 
 .blob1 {
@@ -20,4 +21,16 @@
   right: -20%;
 
   scale: 2;
+}
+
+.cursor {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  margin: -6px 0px 0px -6px;
+  border-radius: 50%;
+  pointer-events: none !important;
+  z-index: 99999999;
+
+  background-color: rgba(var(--clr-white-rgb), 0.3);
 }
