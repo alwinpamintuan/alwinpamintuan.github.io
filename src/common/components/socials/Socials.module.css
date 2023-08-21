@@ -1,35 +1,14 @@
 .profiles {
   display: flex;
-  width: 50%;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
-  padding-top: 2rem;
+  padding-top: 1rem;
+  gap: 1.33rem;
 
   opacity: 0;
   animation: fadeIn 1s;
   animation-delay: 2.5s;
   animation-fill-mode: forwards;
-}
-
-.profileIcon {
-  width: 32px;
-  fill: var(--clr-white);
-}
-
-.profileIcon:hover {
-  animation: bobbing 1s infinite linear;
-  opacity: 0.75;
-}
-
-@keyframes bobbing {
-  0%,
-  100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.2);
-  }
 }
 
 @keyframes fadeIn {
