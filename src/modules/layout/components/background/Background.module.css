@@ -36,6 +36,6 @@
 }
 
 .overlay {
-  max-width: 100dvw;
+  max-width: 100vw;
   overflow: hidden;
 }
