@@ -6,16 +6,18 @@ type Props = {};
 export function Hero({}: Props) {
   return (
     <Section id={`HeroDiv`} justify="center">
-      <p>
-        <span className={styles.hello}>Hello! &nbsp;</span>
-        <span className={styles.iam}>I am</span>
-      </p>
-      <h1 className={styles.emphasis}>John Alwin Pamintuan</h1>
-      <p className={styles.subtitle}>Data Engineer and Tech Enthusiast 🗃️👩‍💻</p>
-
-      <div className={styles.scaled}>
-        <Socials />
+      <div className={styles.main}>
+        <p>
+          <span className={styles.hello}>Hello! &nbsp;</span>
+          <span className={styles.iam}>I am</span>
+        </p>
+        <h1 className={styles.emphasis}>John Alwin Pamintuan</h1>
+        <p className={styles.subtitle}>
+          Data Engineer and Tech Enthusiast 🗃️👩‍💻
+        </p>
       </div>
+
+      <Socials />
     </Section>
   );
 }
