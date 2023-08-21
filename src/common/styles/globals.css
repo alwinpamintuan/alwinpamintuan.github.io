@@ -8,7 +8,7 @@ body {
 }
 
 html {
-  font-size: clamp(14px, 15px + 0.390625vw, 1.25rem);
+  font-size: clamp(14px, 15px + 0.390625vw, 20px);
   min-height: 100dvh;
   overflow-x: clip;
 }
@@ -30,7 +30,7 @@ body {
 
 :root {
   /* Colors */
-  --clr-white: #e8e8ed;
+  --clr-white: #f3f2f9;
   --clr-gray: #2c2a2a;
   --clr-black: #161616;
   --clr-light-green: #c6ffdd;
@@ -38,7 +38,7 @@ body {
   --clr-pink: #f7797d;
   --clr-background: linear-gradient(#000, var(--clr-black));
 
-  --clr-white-rgb: 232, 232, 237;
+  --clr-white-rgb: 243, 242, 249;
   --clr-black-rgb: 22, 22, 22;
 
   /* Gradients */
