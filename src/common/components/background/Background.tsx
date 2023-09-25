@@ -3,12 +3,13 @@ import { classes } from "@utils/index";
 import styles from "./Background.module.css";
 import { cursorTo } from "readline";
 
-type Props = {};
+type Props = {
+  section: String;
+};
 
-export function Background({}: Props) {
+export function Background({ section }: Props) {
   const [isMobile, setIsMobile] = useState(true);
-
-  useEffect(() => {
+  const addBackgroundMouseInteraction = () => {
     const hasMobileUserAgent = /Mobi/i.test(window.navigator.userAgent);
     setIsMobile(hasMobileUserAgent);
 
@@ -31,19 +32,29 @@ export function Background({}: Props) {
         slowBlob.style.left = `calc(${x}px / 24)`;
       });
     }
+  };
+
+  useEffect(() => {
+    addBackgroundMouseInteraction();
   }, []);
 
-  return (
-    <div className={styles.overlay}>
-      <div className={styles.cursor} />
-      <img
-        src="/assets/background/yellow-blob.webp"
-        className={classes(styles.blob1, styles.blob)}
-      ></img>
-      <img
-        src="/assets/background/pink-blob.webp"
-        className={classes(styles.blob2, styles.blob)}
-      ></img>
-    </div>
-  );
+  let background = null;
+  switch (section) {
+    case "hero":
+      background = (
+        <div className={styles.overlay}>
+          <div className={styles.cursor} />
+          <img
+            src="/assets/background/yellow-blob.webp"
+            className={classes(styles.blob1, styles.blob)}
+          ></img>
+        </div>
+      );
+      break;
+
+    default:
+      <></>;
+  }
+
+  return background;
 }
