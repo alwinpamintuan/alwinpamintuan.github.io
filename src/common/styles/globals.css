@@ -5,12 +5,12 @@ body {
   font-family: "Atkinson Hyperlegible", sans-serif;
   word-wrap: break-word;
   color: var(--clr-white);
+  overflow-x: clip;
 }
 
 html {
   font-size: clamp(14px, 15px + 0.390625vw, 20px);
   min-height: 100dvh;
-  overflow-x: clip;
 }
 
 body {
