@@ -1,26 +1,26 @@
 .blob {
-  position: fixed;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
   height: 100vmax;
-  border-radius: 100%;
-  z-index: -99999;
-  overflow: clip;
   pointer-events: none !important;
 }
 
-.blob1 {
+.bigBlob {
+  top: 66vh;
   opacity: 12%;
-  top: 20%;
-  left: -10%;
-
-  scale: 1 1.5;
+  filter: hue-rotate(172deg);
 }
 
-.blob2 {
+.smallBlob {
   opacity: 16%;
-  bottom: 0%;
-  right: -20%;
+  scale: 1;
+  z-index: -99997;
 
-  scale: 2;
+  scale: 0.2;
 }
 
 .cursor {

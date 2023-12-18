@@ -17,6 +17,10 @@
   padding: 0.33rem 0.66rem;
 }
 
+.link:not(.activeLink) {
+  opacity: 0.3;
+}
+
 .link:not(.activeLink):hover {
   color: var(--clr-white);
   outline: 1px solid var(--clr-gray);

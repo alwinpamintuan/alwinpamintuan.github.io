@@ -1,4 +1,4 @@
-import { Section, Socials } from "@components/index";
+import { Background, Section, Socials } from "@components/index";
 import styles from "./Hero.module.css";
 
 type Props = {};
@@ -6,6 +6,7 @@ type Props = {};
 export function Hero({}: Props) {
   return (
     <Section id={`HeroDiv`} justify="center">
+      <Background section="hero" />
       <div className={styles.main}>
         <p>
           <span className={styles.hello}>Hello! &nbsp;</span>
