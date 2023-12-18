@@ -19,7 +19,7 @@ export function Background({ section }: Props) {
         let x = e.pageX;
         let y = e.pageY;
 
-        bigBlob.style.top = `calc(${y}px / 12 + 66vh)`;
+        bigBlob.style.top = `calc(${y}px / 12 + 50vmax)`;
         bigBlob.style.left = `calc(${x}px / 24)`;
       });
     }

@@ -6,13 +6,15 @@
   bottom: 0;
   margin: auto;
   height: 100vmax;
+  overflow: hidden;
   pointer-events: none !important;
 }
 
 .bigBlob {
-  top: 66vh;
+  top: 50vmax;
   opacity: 12%;
   filter: hue-rotate(172deg);
+  z-index: -99997;
 }
 
 .smallBlob {
@@ -36,6 +38,7 @@
 }
 
 .overlay {
+  /* position: absolute; */
   max-width: 100vw;
   overflow: hidden;
 }
