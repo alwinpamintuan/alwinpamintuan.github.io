@@ -6,6 +6,7 @@ body {
   word-wrap: break-word;
   color: var(--clr-white);
   overflow-x: clip;
+  max-width: 100vw;
 }
 
 html {
