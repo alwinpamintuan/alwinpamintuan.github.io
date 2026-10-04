@@ -1,0 +1,113 @@
+:root {
+  --paper: #f3f2ec;
+  --ink: #111;
+  --secondary: #62625c;
+  --rule: #d4d3ca;
+  --guide: #e5e4dc;
+  --ease: cubic-bezier(.22, 1, .36, 1);
+  font-family: ui-monospace, SFMono-Regular, Consolas, 'Liberation Mono', monospace;
+  color: var(--ink);
+  background: var(--paper);
+  font-synthesis: none;
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; font-size: 1rem; line-height: 1.5; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; }
+[hidden] { display: none !important; }
+::selection { background: var(--ink); color: var(--paper); }
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 5px; }
+.skip-link { position: fixed; top: 1rem; left: 1rem; padding: .75rem 1rem; background: var(--ink); color: var(--paper); z-index: 2; transform: translateY(-200%); }
+.skip-link:focus { transform: none; }
+.sheet { width: min(1080px, calc(100% - 6rem)); margin: 0 auto; }
+.header { display: flex; justify-content: space-between; align-items: baseline; gap: 2rem; padding: 3rem 0 1.75rem; border-bottom: 1px solid var(--rule); }
+h1 { margin: 0; font-size: 1.125rem; line-height: 1.5; font-weight: 400; letter-spacing: -.04em; }
+.header-label { font-size: .75rem; letter-spacing: .08em; color: var(--secondary); }
+.main { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 4.5rem; padding: 4.5rem 0 4rem; }
+.main:focus { outline: none; }
+.index-column { min-width: 0; }
+.section-label { display: flex; justify-content: space-between; gap: 1rem; align-items: baseline; font-size: .875rem; color: var(--secondary); }
+.section-label h2 { font: inherit; color: var(--ink); margin: 0; }
+.section-label > :last-child { font-size: .75rem; }
+.project-list { list-style: none; padding: 0; margin: 1.625rem 0 0; border-top: 1px solid var(--ink); }
+.project-list li { border-bottom: 1px solid var(--rule); }
+.project { position: relative; display: grid; grid-template-columns: 2.75rem minmax(0, 1fr) 1.5rem; align-items: center; gap: .75rem; min-height: 8.25rem; padding: 1.5rem .75rem 1.5rem 0; transition: background-color 250ms var(--ease); }
+.project-number { font-size: .75rem; color: var(--secondary); align-self: start; padding-top: .5rem; }
+.project-content { display: flex; flex-direction: column; gap: .375rem; min-width: 0; }
+.project-title { font-size: clamp(2rem, 3.4vw, 2.75rem); line-height: 1.2; letter-spacing: -.055em; }
+.project-description { font-size: .875rem; color: var(--secondary); }
+.project-arrow { stroke: var(--secondary); stroke-width: 1; transition: transform 250ms var(--ease), stroke 250ms var(--ease); }
+.project:hover, .project:focus-visible, .professional-link:hover, .professional-link:focus-visible { background: #11111104; }
+.project:hover .project-arrow, .project:focus-visible .project-arrow, .professional-link:hover .project-arrow, .professional-link:focus-visible .project-arrow { stroke: var(--ink); transform: translate(2px, -2px); }
+.professional-section { margin-top: 2.5rem; }
+.professional-link { display: grid; grid-template-columns: minmax(0, 1fr) 1.5rem; align-items: center; gap: .75rem; margin-top: 1rem; padding: 1.25rem .75rem 1.25rem 0; border-block: 1px solid var(--rule); transition: background-color 250ms var(--ease); }
+.professional-link-title { font-size: 1.375rem; line-height: 1.3; letter-spacing: -.035em; }
+.schematic-panel { min-width: 0; }
+.schematic-label { padding-left: .25rem; }
+.drawing { position: relative; margin-top: 1.625rem; padding: 1.5rem .5rem 1rem; min-height: 26.5rem; display: flex; align-items: center; background-image: linear-gradient(var(--guide) 1px, transparent 1px), linear-gradient(90deg, var(--guide) 1px, transparent 1px); background-size: 24px 24px; background-position: 50% 50%; isolation: isolate; }
+.drawing::before { content: ''; position: absolute; z-index: -1; inset: 0; background: radial-gradient(ellipse at 33% 44%, transparent -20%, var(--paper) 75%); }
+.registration { position: absolute; width: 8px; height: 8px; border-color: #96958e; border-style: solid; }
+.registration-tl { top: 0; left: 0; border-width: 1px 0 0 1px; }
+.registration-tr { top: 0; right: 0; border-width: 1px 1px 0 0; }
+.registration-bl { bottom: 0; left: 0; border-width: 0 0 1px 1px; }
+.registration-br { bottom: 0; right: 0; border-width: 0 1px 1px 0; }
+.schematic { display: block; width: 100%; overflow: visible; }
+.schematic path, .schematic circle { vector-effect: non-scaling-stroke; }
+.drawing-guide { stroke: var(--guide); stroke-width: 1; stroke-dasharray: 2 6; }
+.origin-mark { stroke: #96958e; stroke-width: 1; }
+.origin { stroke: var(--ink); stroke-width: 1; fill: var(--paper); }
+.schematic text { fill: var(--secondary); font-family: inherit; }
+.origin-label { font-size: 12px; }
+.connection { stroke: #b4b3aa; stroke-width: 1; transition: stroke 250ms var(--ease); }
+.signal { stroke: #65655f; stroke-width: 1.5; stroke-dasharray: .035 .965; opacity: 0; }
+.node { fill: #797971; transition: fill 250ms var(--ease); }
+.node-ring { stroke: #b4b3aa; opacity: 0; transition: opacity 250ms var(--ease); }
+.node-label { font-size: 14px; transition: fill 250ms var(--ease); }
+.node-number { font-size: 12px; }
+.branch.is-active .connection { stroke: var(--ink); }
+.branch.is-active .node { fill: var(--ink); }
+.branch.is-active .node-ring { opacity: 1; }
+.branch.is-active .node-label { fill: var(--ink); }
+.drawing-footer { display: flex; align-items: center; justify-content: space-between; gap: .75rem; min-height: 3rem; color: var(--secondary); }
+.drawing-scale { display: flex; align-items: center; gap: .75rem; font-size: .75rem; }
+.drawing-scale > span { width: 2rem; height: .375rem; border: solid #96958e; border-width: 0 1px 1px; }
+.motion-toggle { display: inline-flex; align-items: center; gap: .375rem; min-height: 44px; padding: .5rem .25rem; border: 0; background: transparent; font-size: .875rem; cursor: pointer; }
+.motion-toggle:hover { color: var(--ink); }
+.motion-toggle:disabled { cursor: default; }
+.motion-indicator { width: 5px; height: 5px; border: 1px solid currentColor; }
+.motion-toggle[aria-pressed='true'] .motion-indicator { background: currentColor; }
+.footer { display: flex; justify-content: space-between; align-items: center; gap: 1rem; border-top: 1px solid var(--rule); padding: 1.5rem 0 2rem; font-size: .875rem; color: var(--secondary); }
+.footer a { display: inline-flex; align-items: center; min-height: 44px; gap: .75rem; }
+.footer-links { display: flex; flex-wrap: wrap; gap: .25rem 1.5rem; }
+.footer a:hover { color: var(--ink); }
+.footer-mark { font-size: .75rem; letter-spacing: .15em; }
+
+.sheet[data-motion='on'] .connection { animation: draw 600ms var(--ease) both; }
+.sheet[data-motion='on'] .signal { opacity: .6; animation: transmit 10s linear infinite; animation-delay: var(--signal-delay); }
+.sheet[data-running='false'] .connection, .sheet[data-running='false'] .signal { animation-play-state: paused; }
+@keyframes draw { from { stroke-dasharray: 1; stroke-dashoffset: 1; } to { stroke-dasharray: 1; stroke-dashoffset: 0; } }
+@keyframes transmit { 0% { stroke-dashoffset: 1; } 65%, 100% { stroke-dashoffset: 0; } }
+
+@media (max-width: 800px) {
+  .sheet { width: min(1080px, calc(100% - 3rem)); }
+  .header { padding-top: 2rem; }
+  .header-label { display: none; }
+  .main { grid-template-columns: minmax(0, 1fr); gap: 3rem; padding: 3rem 0 2rem; }
+  .project { min-height: 7.5rem; }
+  .project-title { font-size: 2.375rem; }
+  .schematic-panel { width: 100%; max-width: 440px; justify-self: center; }
+  .drawing { min-height: 0; padding-top: 1.75rem; }
+}
+@media (max-width: 380px) {
+  .sheet { width: calc(100% - 2rem); }
+  h1 { font-size: 1rem; letter-spacing: -.035em; }
+  .project { grid-template-columns: 1.75rem minmax(0, 1fr) 1.5rem; gap: .5rem; }
+  .project-title { font-size: 2rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  .signal { opacity: 0 !important; }
+  .project:hover .project-arrow, .project:focus-visible .project-arrow, .professional-link:hover .project-arrow, .professional-link:focus-visible .project-arrow { transform: none; }
+}

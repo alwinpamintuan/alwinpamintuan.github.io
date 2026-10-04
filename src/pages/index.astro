@@ -1,0 +1,128 @@
+---
+import { githubProfile, identity, professionalHub, projects } from '../data/projects';
+import '../styles/global.css';
+
+const count = projects.length.toString().padStart(2, '0');
+const schematicHeight = 200 + (projects.length - 1) * 94;
+const schematicNodes = projects.map((project, index) => {
+  const y = 156 + index * 94;
+  return {
+    ...project,
+    number: (index + 1).toString().padStart(2, '0'),
+    y,
+    path: `M 46 56 C 46 ${y}, 128 ${y}, 244 ${y}`,
+  };
+});
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="John Alwin Pamintuan — IO, Raffler, and a separate professional hub." />
+    <meta name="theme-color" content="#f3f2ec" />
+    <link rel="canonical" href={Astro.site} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{identity.name} — Project index</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#index">Skip to index</a>
+    <div class="sheet">
+      <header class="header">
+        <h1>{identity.name}</h1>
+        <span class="header-label" aria-hidden="true">PERSONAL INDEX</span>
+      </header>
+
+      <main id="index" tabindex="-1" class="main">
+        <div class="index-column">
+        <section class="index" aria-labelledby="index-title">
+          <div class="section-label">
+            <h2 id="index-title">Projects</h2>
+            <span>{count} entries</span>
+          </div>
+          <ol class="project-list">
+            {projects.map((project, index) => (
+              <li>
+                <a class="project" href={project.url} data-project={project.id}>
+                  <span class="project-number" aria-hidden="true">
+                    {(index + 1).toString().padStart(2, '0')}
+                  </span>
+                  <span class="project-content">
+                    <span class="project-title">{project.label}</span>
+                    <span class="project-description">{project.description}</span>
+                  </span>
+                  <svg class="project-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M5 19 19 5M6 5h13v13" />
+                  </svg>
+                </a>
+              </li>
+            ))}
+          </ol>
+        </section>
+
+        <section class="professional-section" aria-labelledby="professional-title">
+          <div class="section-label">
+            <h2 id="professional-title">Professional</h2>
+          </div>
+          <a class="professional-link" href={professionalHub.url}>
+            <span class="project-content">
+              <span class="professional-link-title">{professionalHub.label}</span>
+              <span class="project-description">{professionalHub.description}</span>
+            </span>
+            <svg class="project-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M5 19 19 5M6 5h13v13" />
+            </svg>
+          </a>
+        </section>
+        </div>
+
+        <aside class="schematic-panel" aria-label="Motion controls">
+          <div class="section-label schematic-label" aria-hidden="true">
+            <span>Connections</span>
+            <span>Fig. 01</span>
+          </div>
+          <div class="drawing" aria-hidden="true">
+            <span class="registration registration-tl"></span>
+            <span class="registration registration-tr"></span>
+            <span class="registration registration-bl"></span>
+            <span class="registration registration-br"></span>
+            <svg class="schematic" viewBox={`0 0 360 ${schematicHeight}`} fill="none">
+              <path class="drawing-guide" d={`M46 28V${schematicHeight - 12}M244 112V${schematicHeight - 12}`} />
+              <path class="origin-mark" d="M36 56h20M46 46v20" />
+              <circle class="origin" cx="46" cy="56" r="4" />
+              <text class="origin-label" x="70" y="60">{identity.name}</text>
+              {schematicNodes.map((node, index) => (
+                <g class="branch" data-branch={node.id} style={`--signal-delay: -${index * 3}s`}>
+                  <path class="connection" d={node.path} pathLength="1" />
+                  <path class="signal" d={node.path} pathLength="1" />
+                  <circle class="node-ring" cx="244" cy={node.y} r="10" />
+                  <circle class="node" cx="244" cy={node.y} r="3" />
+                  <text class="node-label" x="266" y={node.y + 5}>{node.label}</text>
+                  <text class="node-number" x="244" y={node.y + 26} text-anchor="middle">{node.number}</text>
+                </g>
+              ))}
+            </svg>
+          </div>
+          <div class="drawing-footer">
+            <span class="drawing-scale" aria-hidden="true"><span></span>INDEX / {count}</span>
+            <button class="motion-toggle" type="button" aria-pressed="false" hidden>
+              <span class="motion-indicator" aria-hidden="true"></span>
+              <span>Motion</span>
+              <span data-motion-label>off</span>
+            </button>
+          </div>
+        </aside>
+      </main>
+
+      <footer class="footer">
+        <nav class="footer-links" aria-label="Elsewhere">
+          <a href={githubProfile.url}>{githubProfile.label} <span aria-hidden="true">↗</span></a>
+          <a href={`mailto:${identity.email}`}>Email <span aria-hidden="true">↗</span></a>
+        </nav>
+        <span class="footer-mark" aria-hidden="true">J / A / P</span>
+      </footer>
+    </div>
+    <script src="../scripts/index.ts"></script>
+  </body>
+</html>
