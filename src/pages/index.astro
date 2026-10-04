@@ -20,18 +20,55 @@ const schematicNodes = projects.map((project, index) => {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="John Alwin Pamintuan — IO, Raffler, and a separate professional hub." />
-    <meta name="theme-color" content="#f3f2ec" />
+    <meta name="description" content="John Alwin Pamintuan — explore IO and Raffler, or view the résumé." />
+    <meta name="theme-color" content="#f3f2ec" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#20201e" media="(prefers-color-scheme: dark)" />
+    <script is:inline>
+      (() => {
+        let preference;
+        try {
+          const saved = localStorage.getItem('project-index:theme');
+          if (saved === 'light' || saved === 'dark') preference = saved;
+        } catch { /* Storage restrictions do not prevent theme selection. */ }
+        const theme = preference ?? (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.dataset.theme = theme;
+        if (preference) document.documentElement.dataset.themePreference = preference;
+        document.querySelectorAll('meta[name="theme-color"]').forEach((meta) => {
+          meta.setAttribute('content', theme === 'dark' ? '#20201e' : '#f3f2ec');
+        });
+      })();
+    </script>
     <link rel="canonical" href={Astro.site} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>{identity.name} — Project index</title>
+    <title>{identity.name} · Projects</title>
   </head>
   <body>
     <a class="skip-link" href="#index">Skip to index</a>
     <div class="sheet">
       <header class="header">
-        <h1>{identity.name}</h1>
-        <span class="header-label" aria-hidden="true">PERSONAL INDEX</span>
+        <div class="header-bar">
+          <a class="site-home" href="/">Projects</a>
+          <div class="header-actions">
+            <nav class="header-nav" aria-label="Primary">
+              <a href={professionalHub.url}>Résumé</a>
+              <a href={`mailto:${identity.email}`}>Contact</a>
+            </nav>
+            <button class="theme-toggle" type="button" aria-label="Dark mode" aria-pressed="false" hidden>
+              <span class="theme-track" aria-hidden="true"></span>
+              <svg class="theme-icon theme-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="4" />
+                <path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.4 1.4m11.2 11.2L19 19M5 19l1.4-1.4M17.6 6.4 19 5" />
+              </svg>
+              <svg class="theme-icon theme-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20.5 14A9 9 0 0 1 10 3.5 9 9 0 1 0 20.5 14Z" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="header-identity">
+          <h1>{identity.name}</h1>
+          <p class="header-label">Personal index</p>
+        </div>
       </header>
 
       <main id="index" tabindex="-1" class="main">
@@ -44,37 +81,56 @@ const schematicNodes = projects.map((project, index) => {
           <ol class="project-list">
             {projects.map((project, index) => (
               <li>
-                <a class="project" href={project.url} data-project={project.id}>
-                  <span class="project-number" aria-hidden="true">
-                    {(index + 1).toString().padStart(2, '0')}
-                  </span>
-                  <span class="project-content">
-                    <span class="project-title">{project.label}</span>
-                    <span class="project-description">{project.description}</span>
-                  </span>
-                  <svg class="project-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M5 19 19 5M6 5h13v13" />
-                  </svg>
-                </a>
+                <details class="project-entry" data-project={project.id}>
+                  <summary class="project">
+                    <span class="project-number" aria-hidden="true">
+                      {(index + 1).toString().padStart(2, '0')}
+                    </span>
+                    <span class="project-content">
+                      <span class="project-title">{project.label}</span>
+                      <span class="project-description">{project.description}</span>
+                    </span>
+                    <svg class="project-disclosure" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path d="m6 9 6 6 6-6" />
+                    </svg>
+                  </summary>
+                  <div class="project-preview">
+                    <figure class="preview-plate">
+                      <span class="registration registration-tl" aria-hidden="true"></span>
+                      <span class="registration registration-tr" aria-hidden="true"></span>
+                      <span class="registration registration-bl" aria-hidden="true"></span>
+                      <span class="registration registration-br" aria-hidden="true"></span>
+                      <figcaption class="preview-caption">
+                        <span>{(index + 1).toString().padStart(2, '0')} / {project.label}</span>
+                        <span>Interface preview</span>
+                      </figcaption>
+                      <div class="preview-image">
+                        <img
+                          class="project-screenshot"
+                          src={project.preview.screenshot.src}
+                          alt={project.preview.screenshot.alt}
+                          width={project.preview.screenshot.width}
+                          height={project.preview.screenshot.height}
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </div>
+                      <span class="preview-scale" aria-hidden="true"><span></span>SCREEN CAPTURE</span>
+                    </figure>
+                    <p class="project-overview">{project.preview.overview}</p>
+                    <ul class="project-highlights">
+                      {project.preview.highlights.map((highlight) => <li>{highlight}</li>)}
+                    </ul>
+                    <a class="project-open" href={project.url} aria-label={`Open project: ${project.label}`}>
+                      Open project <span aria-hidden="true">↗</span>
+                    </a>
+                  </div>
+                </details>
               </li>
             ))}
           </ol>
         </section>
 
-        <section class="professional-section" aria-labelledby="professional-title">
-          <div class="section-label">
-            <h2 id="professional-title">Professional</h2>
-          </div>
-          <a class="professional-link" href={professionalHub.url}>
-            <span class="project-content">
-              <span class="professional-link-title">{professionalHub.label}</span>
-              <span class="project-description">{professionalHub.description}</span>
-            </span>
-            <svg class="project-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M5 19 19 5M6 5h13v13" />
-            </svg>
-          </a>
-        </section>
         </div>
 
         <aside class="schematic-panel" aria-label="Motion controls">

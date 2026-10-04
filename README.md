@@ -1,6 +1,6 @@
 # John Alwin Pamintuan — project index
 
-A personal static project hub built with Astro and strict TypeScript. The HTML index is available without JavaScript; the client script only enhances highlighting and motion.
+A personal static project hub built with Astro and strict TypeScript. The HTML index and expandable project previews are available without JavaScript; the client script enhances theme selection, highlighting, and motion.
 
 ## Local development
 
@@ -22,13 +22,23 @@ npm run preview
 
 ## Updating the index
 
-Edit `src/data/projects.ts`. Each project entry has a stable ID, label, kind, factual description, and absolute URL. The project index and SVG connections are generated from that same list at build time. IDs must be unique. The schematic expands vertically when entries are added.
+Edit `src/data/projects.ts`. Each project entry has a stable ID, label, kind, factual description, absolute URL, and typed `preview` content: an overview, exactly three highlights, and a screenshot with `src`, `alt`, `width`, and `height`. The project index and SVG connections are generated from that same list at build time. IDs must be unique. The schematic expands vertically when entries are added.
 
-The separate `professionalHub` entry renders the unnumbered Résumé link in the **Professional** section. It is not counted, numbered, or drawn as a project; it leads to the existing tailored professional hub.
+Project rows are native disclosures. Each opens an inline preview with an explicit **Open project** link; multiple previews can stay open. All previews start collapsed on a fresh load. JavaScript enhances opening and closing with a 340ms height transition that reverses on repeated activation. Reduced motion makes it immediate. Without JavaScript, disclosures retain native operation and a short CSS reveal. The destination links use standard same-tab navigation. Expanding a project does not load or embed its application.
+
+Screenshots live in `public/previews/` as optimized 1200 × 630 WebP images. IO uses a workstation capture; Raffler shows a local production preview with fictional participants. To replace a screenshot, capture the actual project UI with no personal data, export at the same dimensions and path, and update its alternative text when the visible content changes. CSS presents the unmodified assets as monochrome interface plates, blending them into the light or dark paper with grid margins, registration marks, a figure label, and a scale line. Images use intrinsic dimensions and lazy loading.
+
+The separate `professionalHub` entry supplies the header's Résumé link. It is not counted, numbered, or drawn as a project. The homepage has no separate Professional section.
 
 GitHub is an external profile link in the footer, also outside the project index and schematic. The indexed projects are IO and Raffler.
 
-Keep page copy as factual labels. The hub has no introduction or promotional copy. The light monochrome palette, type, spacing, and motion are defined in `src/styles/global.css`.
+Keep page copy factual. The hub has no introduction or promotional copy. The light and dark palettes, type, spacing, and motion are defined in `src/styles/global.css`.
+
+## Theme
+
+The header's **Dark mode** button uses a sun/moon selector, matching the résumé site's header. Its selected icon and pressed state show the current theme; the tooltip describes the next action. The palettes and monospace typography also match the résumé site. A new visitor follows the system theme, including changes while the page is open. Choosing light or dark saves an explicit preference under `project-index:theme` in local storage, separate from other projects on this origin. That preference applies before first paint and overrides subsequent system changes. If storage is unavailable, the choice still works for the current page. To restore system following, remove that storage entry and reload.
+
+The browser theme color and native control color scheme match the selected theme. Without JavaScript, CSS follows the system theme and the button stays hidden.
 
 ## GitHub Pages
 
@@ -43,7 +53,7 @@ The workflow installs from the lockfile, runs type checks and the build, and upl
 
 ## Motion and accessibility
 
-The motion toggle applies for the current page session. Reduced-motion preferences take priority and disable the toggle. Ambient animation pauses when the drawing is outside the viewport or the document is hidden. Without JavaScript, the toggle is hidden and the schematic is static. Project links have visible keyboard focus and standard same-tab navigation.
+The motion toggle applies for the current page session. Reduced-motion preferences take priority and disable the toggle. Ambient animation pauses when the drawing is outside the viewport or the document is hidden. Without JavaScript, the toggle is hidden and the schematic is static. Project summaries toggle with Enter or Space and expose their expanded state natively. Summaries and links have visible keyboard focus; focus within a preview highlights its matching schematic branch and takes priority over pointer hover.
 
 ## Alternate workbench
 
