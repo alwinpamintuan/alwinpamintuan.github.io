@@ -1,24 +1,19 @@
 ---
 import { githubProfile, identity, professionalHub, projects } from '../data/projects';
+import '@fontsource/ibm-plex-mono/latin-400.css';
+import '@fontsource/ibm-plex-mono/latin-500.css';
+import monoRegular from '@fontsource/ibm-plex-mono/files/ibm-plex-mono-latin-400-normal.woff2?url';
 import '../styles/global.css';
+import '../styles/site-chrome.css';
+import '../styles/site-transitions.css';
 
-const count = projects.length.toString().padStart(2, '0');
-const schematicHeight = 200 + (projects.length - 1) * 94;
-const schematicNodes = projects.map((project, index) => {
-  const y = 156 + index * 94;
-  return {
-    ...project,
-    number: (index + 1).toString().padStart(2, '0'),
-    y,
-    path: `M 46 56 C 46 ${y}, 128 ${y}, 244 ${y}`,
-  };
-});
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="preload" href={monoRegular} as="font" type="font/woff2" crossorigin="anonymous" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="John Alwin Pamintuan — explore IO and Raffler, or view the résumé." />
     <meta name="theme-color" content="#f3f2ec" media="(prefers-color-scheme: light)" />
@@ -27,8 +22,11 @@ const schematicNodes = projects.map((project, index) => {
       (() => {
         let preference;
         try {
-          const saved = localStorage.getItem('project-index:theme');
-          if (saved === 'light' || saved === 'dark') preference = saved;
+          const saved = localStorage.getItem('personal-site:theme') ?? localStorage.getItem('project-index:theme');
+          if (saved === 'light' || saved === 'dark') {
+            preference = saved;
+            localStorage.setItem('personal-site:theme', saved);
+          }
         } catch { /* Storage restrictions do not prevent theme selection. */ }
         const theme = preference ?? (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
         document.documentElement.dataset.theme = theme;
@@ -47,13 +45,13 @@ const schematicNodes = projects.map((project, index) => {
     <div class="sheet">
       <header class="header">
         <div class="header-bar">
-          <a class="site-home" href="/">Projects</a>
+          <a class="site-home" href="/" aria-current="page">Projects</a>
           <div class="header-actions">
             <nav class="header-nav" aria-label="Primary">
-              <a href={professionalHub.url}>Résumé</a>
+              <a href={new URL(professionalHub.url).pathname}>Résumé</a>
               <a href={`mailto:${identity.email}`}>Contact</a>
             </nav>
-            <button class="theme-toggle" type="button" aria-label="Dark mode" aria-pressed="false" hidden>
+            <button class="theme-toggle" type="button" role="switch" aria-label="Dark mode" aria-checked="false" hidden>
               <span class="theme-track" aria-hidden="true"></span>
               <svg class="theme-icon theme-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
                 <circle cx="12" cy="12" r="4" />
@@ -72,51 +70,51 @@ const schematicNodes = projects.map((project, index) => {
       </header>
 
       <main id="index" tabindex="-1" class="main">
-        <div class="index-column">
         <section class="index" aria-labelledby="index-title">
           <div class="section-label">
             <h2 id="index-title">Projects</h2>
-            <span>{count} entries</span>
           </div>
-          <ol class="project-list">
+          <ul class="project-list">
             {projects.map((project, index) => (
               <li>
-                <details class="project-entry" data-project={project.id}>
+                <details class="project-entry" data-project={project.id} style={`--entry-delay: ${Math.min(index, 3) * 100}ms`}>
                   <summary class="project">
-                    <span class="project-number" aria-hidden="true">
-                      {(index + 1).toString().padStart(2, '0')}
-                    </span>
                     <span class="project-content">
                       <span class="project-title">{project.label}</span>
                       <span class="project-description">{project.description}</span>
+                      <span class="project-details-label">
+                        <span class="details-closed">View details</span>
+                        <span class="details-open">Hide details</span>
+                        <svg class="project-disclosure" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path d="m6 9 6 6 6-6" />
+                        </svg>
+                      </span>
                     </span>
-                    <svg class="project-disclosure" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                      <path d="m6 9 6 6 6-6" />
-                    </svg>
+                    <span class="project-image-entrance">
+                    <span class="project-image">
+                      <img
+                        class="project-screenshot"
+                        src={project.preview.screenshot.src}
+                        alt={project.preview.screenshot.alt}
+                        width={project.preview.screenshot.width}
+                        height={project.preview.screenshot.height}
+                        loading="lazy"
+                        decoding="async"
+                      />
+                      <img
+                        class="project-screenshot-color"
+                        src={project.preview.screenshot.src}
+                        alt=""
+                        aria-hidden="true"
+                        width={project.preview.screenshot.width}
+                        height={project.preview.screenshot.height}
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </span>
+                    </span>
                   </summary>
                   <div class="project-preview">
-                    <figure class="preview-plate">
-                      <span class="registration registration-tl" aria-hidden="true"></span>
-                      <span class="registration registration-tr" aria-hidden="true"></span>
-                      <span class="registration registration-bl" aria-hidden="true"></span>
-                      <span class="registration registration-br" aria-hidden="true"></span>
-                      <figcaption class="preview-caption">
-                        <span>{(index + 1).toString().padStart(2, '0')} / {project.label}</span>
-                        <span>Interface preview</span>
-                      </figcaption>
-                      <div class="preview-image">
-                        <img
-                          class="project-screenshot"
-                          src={project.preview.screenshot.src}
-                          alt={project.preview.screenshot.alt}
-                          width={project.preview.screenshot.width}
-                          height={project.preview.screenshot.height}
-                          loading="lazy"
-                          decoding="async"
-                        />
-                      </div>
-                      <span class="preview-scale" aria-hidden="true"><span></span>SCREEN CAPTURE</span>
-                    </figure>
                     <p class="project-overview">{project.preview.overview}</p>
                     <ul class="project-highlights">
                       {project.preview.highlights.map((highlight) => <li>{highlight}</li>)}
@@ -128,47 +126,8 @@ const schematicNodes = projects.map((project, index) => {
                 </details>
               </li>
             ))}
-          </ol>
+          </ul>
         </section>
-
-        </div>
-
-        <aside class="schematic-panel" aria-label="Motion controls">
-          <div class="section-label schematic-label" aria-hidden="true">
-            <span>Connections</span>
-            <span>Fig. 01</span>
-          </div>
-          <div class="drawing" aria-hidden="true">
-            <span class="registration registration-tl"></span>
-            <span class="registration registration-tr"></span>
-            <span class="registration registration-bl"></span>
-            <span class="registration registration-br"></span>
-            <svg class="schematic" viewBox={`0 0 360 ${schematicHeight}`} fill="none">
-              <path class="drawing-guide" d={`M46 28V${schematicHeight - 12}M244 112V${schematicHeight - 12}`} />
-              <path class="origin-mark" d="M36 56h20M46 46v20" />
-              <circle class="origin" cx="46" cy="56" r="4" />
-              <text class="origin-label" x="70" y="60">{identity.name}</text>
-              {schematicNodes.map((node, index) => (
-                <g class="branch" data-branch={node.id} style={`--signal-delay: -${index * 3}s`}>
-                  <path class="connection" d={node.path} pathLength="1" />
-                  <path class="signal" d={node.path} pathLength="1" />
-                  <circle class="node-ring" cx="244" cy={node.y} r="10" />
-                  <circle class="node" cx="244" cy={node.y} r="3" />
-                  <text class="node-label" x="266" y={node.y + 5}>{node.label}</text>
-                  <text class="node-number" x="244" y={node.y + 26} text-anchor="middle">{node.number}</text>
-                </g>
-              ))}
-            </svg>
-          </div>
-          <div class="drawing-footer">
-            <span class="drawing-scale" aria-hidden="true"><span></span>INDEX / {count}</span>
-            <button class="motion-toggle" type="button" aria-pressed="false" hidden>
-              <span class="motion-indicator" aria-hidden="true"></span>
-              <span>Motion</span>
-              <span data-motion-label>off</span>
-            </button>
-          </div>
-        </aside>
       </main>
 
       <footer class="footer">

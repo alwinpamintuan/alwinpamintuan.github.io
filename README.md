@@ -54,7 +54,3 @@ The workflow installs from the lockfile, runs type checks and the build, and upl
 ## Motion and accessibility
 
 The motion toggle applies for the current page session. Reduced-motion preferences take priority and disable the toggle. Ambient animation pauses when the drawing is outside the viewport or the document is hidden. Without JavaScript, the toggle is hidden and the schematic is static. Project summaries toggle with Enter or Space and expose their expanded state natively. Summaries and links have visible keyboard focus; focus within a preview highlights its matching schematic branch and takes priority over pointer hover.
-
-## Alternate workbench
-
-`docs/workbench-spec.md` is a specification for a future alternate design, including its design language, storyboard, and acceptance criteria. No workbench route or executable demo is included. Documentation is excluded from the production output.
