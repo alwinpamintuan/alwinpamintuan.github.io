@@ -81,8 +81,8 @@ test('combined preview loads the theme control and matching footers on every ré
   await mkdir('.verification/screenshots', { recursive: true });
   for (const colorScheme of ['light', 'dark'] as const) {
     await page.emulateMedia({ colorScheme });
-    for (const width of [375, 768, 1440]) {
-      await page.setViewportSize({ width, height: 960 });
+    for (const width of [375, 768, 1440, 1920]) {
+      await page.setViewportSize({ width, height: width === 1920 ? 1080 : 960 });
       await page.goto('/resume/');
       await page.evaluate(() => document.fonts.ready);
       expect(await page.evaluate(() => getComputedStyle(document.body).backgroundImage)).toBe('none');

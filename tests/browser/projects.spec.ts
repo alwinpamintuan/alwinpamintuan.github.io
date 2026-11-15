@@ -116,8 +116,8 @@ test('responsive layouts, both themes, readable previews, and accessibility', as
   await mkdir('.verification/screenshots', { recursive: true });
   for (const colorScheme of ['light', 'dark'] as const) {
     await page.emulateMedia({ colorScheme, reducedMotion: 'reduce' });
-    for (const width of [375, 768, 1440]) {
-      await page.setViewportSize({ width, height: 960 });
+    for (const width of [375, 768, 1440, 1920]) {
+      await page.setViewportSize({ width, height: width === 1920 ? 1080 : 960 });
       await page.goto('/');
       await page.evaluate(() => document.fonts.ready);
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBeTruthy();
@@ -134,6 +134,35 @@ test('responsive layouts, both themes, readable previews, and accessibility', as
   await page.locator('.contact-detail').last().evaluate((element) => { element.textContent = 'AnExtremelyLongUnbrokenContactAddressForLayoutTesting@example.com'; });
   await page.locator('.project-caption h2').first().evaluate((element) => { element.textContent = 'AnExtremelyLongUnbrokenProjectNameThatMustWrap'; });
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBeTruthy();
+});
+
+test('the footer ends the page and extra projects grow the desktop naturally', async ({ page }) => {
+  for (const colorScheme of ['light', 'dark'] as const) {
+    await page.emulateMedia({ colorScheme, reducedMotion: 'reduce' });
+    for (const [width, height] of [[375, 960], [768, 960], [1440, 960], [1920, 1080]]) {
+      await page.setViewportSize({ width, height });
+      await page.goto('/');
+      await page.evaluate(() => document.fonts.ready);
+      const footer = (await page.locator('.site-footer').boundingBox())!;
+      const pageHeight = await page.evaluate(() => document.documentElement.scrollHeight);
+      expect(Math.abs(footer.y + footer.height - pageHeight)).toBeLessThan(2);
+      if (width > 900) {
+        expect(pageHeight).toBe(height);
+        const header = (await page.locator('.site-header').boundingBox())!;
+        const main = (await page.locator('main').boundingBox())!;
+        expect(Math.abs(main.y - header.height - (footer.y - main.y - main.height))).toBeLessThan(2);
+      }
+    }
+  }
+  await page.evaluate(() => {
+    const grid = document.querySelector('.bento-grid')!;
+    const project = grid.querySelector('[data-kind="project"]')!;
+    for (let index = 0; index < 6; index++) grid.insertBefore(project.cloneNode(true), grid.lastElementChild);
+  });
+  const grid = (await page.locator('.bento-grid').boundingBox())!;
+  const footer = (await page.locator('.site-footer').boundingBox())!;
+  expect(footer.y).toBeGreaterThan(grid.y + grid.height);
+  expect(await page.evaluate(() => document.documentElement.scrollHeight)).toBeGreaterThan(1080);
 });
 
 test('shared theme and navigation connect the two production builds', async ({ page }) => {
@@ -166,4 +195,19 @@ test('cards give tactile pointer feedback and respect reduced motion immediately
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await card.hover();
   expect(await card.evaluate((element) => getComputedStyle(element).transform)).toBe('none');
+});
+
+
+test('the companion résumé keeps current content compact and controls usable', async ({ page }) => {
+  test.skip(!process.env.COMPANION_DIST, 'Set COMPANION_DIST to the companion production build.');
+  for (const width of [375, 768, 1440, 1920]) {
+    await page.setViewportSize({ width, height: width === 1920 ? 1080 : 960 });
+    await page.goto('/resume/');
+    await page.evaluate(() => document.fonts.ready);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBeTruthy();
+    if (width === 1440) expect(await page.evaluate(() => document.documentElement.scrollHeight)).toBeLessThanOrEqual(1600);
+    for (const selector of ['.hero-actions a', '.certification .text-link', '.theme-toggle', '.bridge-action']) {
+      for (const control of await page.locator(selector).all()) expect((await control.boundingBox())!.height).toBeGreaterThanOrEqual(44);
+    }
+  }
 });
