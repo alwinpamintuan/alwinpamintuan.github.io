@@ -12,6 +12,7 @@ export interface ProjectLink {
       readonly alt: string;
       readonly width: number;
       readonly height: number;
+      readonly position?: string;
     };
   };
 }
@@ -19,9 +20,9 @@ export interface ProjectLink {
 export const projects = [
   {
     id: 'io',
-    label: 'IO',
+    label: 'I/O',
     kind: 'tool',
-    description: 'Peripheral testing',
+    description: 'An interactive way to test your computer peripherals.',
     url: 'https://alwinpamintuan.github.io/io/',
     preview: {
       overview: 'A browser-based peripheral tester with a shared workstation for checking input, displays, and audio devices.',
@@ -32,7 +33,8 @@ export const projects = [
       ],
       screenshot: {
         src: '/previews/io.webp',
-        alt: 'IO workstation with a monitor, keyboard, mouse, controller, webcam, speakers, and microphone.',
+        position: '50% 30%',
+        alt: 'I/O workstation with a monitor, keyboard, mouse, controller, webcam, speakers, and microphone.',
         width: 1200,
         height: 630,
       },
@@ -42,7 +44,7 @@ export const projects = [
     id: 'raffler',
     label: 'Raffler',
     kind: 'tool',
-    description: 'Raffle draws',
+    description: 'If Rappler made a raffle app.',
     url: 'https://alwinpamintuan.github.io/raffler/',
     preview: {
       overview: 'A raffle tool for building a participant pool, drawing winners, and keeping track of results.',
@@ -53,6 +55,7 @@ export const projects = [
       ],
       screenshot: {
         src: '/previews/raffler.webp',
+        position: '50% 100%',
         alt: 'Raffler with fictional participants at the entry desk, a ready live draw, and the winners section.',
         width: 1200,
         height: 630,
@@ -77,3 +80,14 @@ export const identity = {
   name: 'John Alwin Pamintuan',
   email: 'alwinpamintuan@gmail.com',
 } as const;
+
+export const about = {
+  heading: ['Projects.', 'Experiments.', 'Whatever’s next.'],
+  description: 'Things I make outside of work.',
+  location: 'Metro Manila, Philippines',
+} as const;
+
+export const socialProfiles = [
+  githubProfile,
+  { label: 'LinkedIn', url: 'https://www.linkedin.com/in/alwinpamintuan/' },
+] as const;
