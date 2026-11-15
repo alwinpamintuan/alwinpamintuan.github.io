@@ -1,56 +1,56 @@
-# John Alwin Pamintuan — project index
+# John Alwin Pamintuan — Projects
 
-A personal static project hub built with Astro and strict TypeScript. The HTML index and expandable project previews are available without JavaScript; the client script enhances theme selection, highlighting, and motion.
+Personal projects and experiments, built with Astro and TypeScript. Published at [alwinpamintuan.github.io](https://alwinpamintuan.github.io/), with the companion [résumé](https://alwinpamintuan.github.io/resume/) maintained in `../work`.
 
-## Local development
+## Development and checks
 
-Use Node.js 24 or later and npm.
+Use Node.js 24 and npm.
 
 ```sh
 npm ci
+npx playwright install chromium
 npm run dev
 ```
 
-Astro prints the local development URL. To verify and preview the production output:
-
 ```sh
 npm run build
-npm run preview
+npm run test:e2e
 ```
 
-`build` runs `astro check` before creating the static `dist/` output. `npm run check` runs the type checks independently.
+The build runs Astro type checks and writes static output to `dist/`. Browser tests use port 4323 and cover project launches, keyboard access, themes, reduced motion, JavaScript-disabled use, responsive layouts, and accessibility. Generated screenshots and traces stay under `.verification/`.
 
-## Updating the index
+## Review both sites locally
 
-Edit `src/data/projects.ts`. Each project entry has a stable ID, label, kind, factual description, absolute URL, and typed `preview` content: an overview, exactly three highlights, and a screenshot with `src`, `alt`, `width`, and `height`. The project index and SVG connections are generated from that same list at build time. IDs must be unique. The schematic expands vertically when entries are added.
+Build the companion résumé and this site, then start the combined production preview:
 
-Project rows are native disclosures. Each opens an inline preview with an explicit **Open project** link; multiple previews can stay open. All previews start collapsed on a fresh load. JavaScript enhances opening and closing with a 340ms height transition that reverses on repeated activation. Reduced motion makes it immediate. Without JavaScript, disclosures retain native operation and a short CSS reveal. The destination links use standard same-tab navigation. Expanding a project does not load or embed its application.
+```sh
+npm --prefix ../work run build
+npm run build
+npm run preview:both
+```
 
-Screenshots live in `public/previews/` as optimized 1200 × 630 WebP images. IO uses a workstation capture; Raffler shows a local production preview with fictional participants. To replace a screenshot, capture the actual project UI with no personal data, export at the same dimensions and path, and update its alternative text when the visible content changes. CSS presents the unmodified assets as monochrome interface plates, blending them into the light or dark paper with grid margins, registration marks, a figure label, and a scale line. Images use intrinsic dimensions and lazy loading.
+Open [Projects](http://127.0.0.1:4323/) or [Résumé](http://127.0.0.1:4323/resume/). `COMPANION_DIST` overrides the default `../work/dist` directory. Rebuild after changes and refresh. Stop the preview before running browser tests.
 
-The separate `professionalHub` entry supplies the header's Résumé link. It is not counted, numbered, or drawn as a project. The homepage has no separate Professional section.
+For live editing, use separate Astro dev servers on ports 4321 and 4322. For cross-site browser checks, set `COMPANION_DIST` to the résumé build before running `npm run test:e2e`; these checks are skipped when no companion build is supplied.
 
-GitHub is an external profile link in the footer, also outside the project index and schematic. The indexed projects are IO and Raffler.
+## Updating projects
 
-Keep page copy factual. The hub has no introduction or promotional copy. The light and dark palettes, type, spacing, and motion are defined in `src/styles/global.css`.
+Edit `src/data/projects.ts`. Keep IDs unique and stable. Cards use each entry's label, description, URL, and `preview.screenshot`; the data also retains supporting project facts. The first project is wider on desktop, subsequent cards flow automatically, and the résumé card fills an unpaired final row.
 
-## Theme
+Screenshots live in `public/previews/`. Preserve original colors, intrinsic dimensions, and accurate alternative text. An optional `position` controls the desktop crop. Compact screens show the entire image. The first image loads eagerly; others load lazily. Adding a project requires no header or layout changes.
 
-The header's **Dark mode** button uses a sun/moon selector, matching the résumé site's header. Its selected icon and pressed state show the current theme; the tooltip describes the next action. The palettes and monospace typography also match the résumé site. A new visitor follows the system theme, including changes while the page is open. Choosing light or dark saves an explicit preference under `project-index:theme` in local storage, separate from other projects on this origin. That preference applies before first paint and overrides subsequent system changes. If storage is unavailable, the choice still works for the current page. To restore system following, remove that storage entry and reload.
+The same data file contains the introduction, résumé destination, social profiles, and email. Career details and document exports belong in the companion repository. The apps themselves are maintained separately.
 
-The browser theme color and native control color scheme match the selected theme. Without JavaScript, CSS follows the system theme and the button stays hidden.
+## Shared interface
 
-## GitHub Pages
+- Use self-hosted Inter for prose and IBM Plex Mono for navigation and metadata, solid paper/charcoal surfaces, and cobalt links and focus rings. Font licenses are in `public/fonts/`.
+- Mirror `src/styles/site-tokens.css`, `site-chrome.css`, `site-transitions.css`, `src/scripts/site-navigation.ts`, and `src/components/SiteFooter.astro` with the résumé repository. Keep page-specific layout styles separate.
+- The sticky header links the owner's name home. The résumé adds current-page section navigation; cross-site discovery stays in page content. The shared contact footer contains GitHub, LinkedIn, Email, and Back to top.
+- Preserve the `personal-site:theme` preference and migration from `project-index:theme`. Without a saved choice, follow system changes. Blocked storage still permits a choice for the current page; without JavaScript, CSS follows the system theme.
+- Keep native links, visible focus, 44px minimum control targets, fine-pointer hover feedback, and immediate reduced-motion behavior. The introduction uses three explicit heading lines.
 
-The deployment origin is `https://alwinpamintuan.github.io`, with the default root base path. The repository must be named `alwinpamintuan.github.io` to publish at this address.
+## Deployment
 
-1. Connect these files to that repository, preserving any existing remote work. The initial workspace was empty and had no Git remote.
-2. In repository **Settings → Pages**, select **GitHub Actions** as the publishing source.
-3. Push to `main`, or run **Deploy project index** from the Actions tab. Adjust the workflow branch if the repository uses another default branch.
-4. Confirm the workflow completes and the homepage renders at the configured origin.
+The `main` branch publishes to GitHub Pages through `.github/workflows/deploy.yml`. Pull requests run the build and browser checks; pushes to `main` and manual runs on `main` deploy the resulting `dist/` artifact. GitHub Pages must use GitHub Actions as its source.
 
-The workflow installs from the lockfile, runs type checks and the build, and uploads only `dist/`. The existing résumé and IO are absolute links to separate sites; their source is not included here.
-
-## Motion and accessibility
-
-The motion toggle applies for the current page session. Reduced-motion preferences take priority and disable the toggle. Ambient animation pauses when the drawing is outside the viewport or the document is hidden. Without JavaScript, the toggle is hidden and the schematic is static. Project summaries toggle with Enter or Space and expose their expanded state natively. Summaries and links have visible keyboard focus; focus within a preview highlights its matching schematic branch and takes priority over pointer hover.
+The site uses the origin root. The résumé remains a separate deployment under `/resume/`, and project destinations retain their existing paths.
