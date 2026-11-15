@@ -33,7 +33,7 @@ export const projects = [
       ],
       screenshot: {
         src: '/previews/io.webp',
-        position: '50% 30%',
+        position: '50% 20%',
         alt: 'I/O workstation with a monitor, keyboard, mouse, controller, webcam, speakers, and microphone.',
         width: 1200,
         height: 630,
