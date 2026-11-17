@@ -17,7 +17,9 @@ npm run build
 npm run test:e2e
 ```
 
-The build runs Astro type checks and writes static output to `dist/`. Browser tests use port 4323 and cover project launches, keyboard access, themes, reduced motion, JavaScript-disabled use, responsive layouts, and accessibility. Generated screenshots and traces stay under `.verification/`.
+The build runs Astro type checks and writes static output to `dist/`. Browser tests use port 4323 and cover native project/contact destinations, loaded previews, keyboard access, theme persistence/migration, JavaScript-disabled use, responsive usability, and accessibility. Screenshots are captured only on failure; diagnostics stay under `.verification/`.
+
+Every test must identify a concrete production failure it prevents. Use real builds and browser interactions, functional integration tests, and independent expected results. Do not add unit tests, mocked responses/browser APIs, cosmetic CSS assertions, DOM-fabricated scenarios, copy snapshots, or screenshots without an assertion. External URLs are native-link contracts; third-party availability is outside CI.
 
 ## Review both sites locally
 
@@ -31,7 +33,14 @@ npm run preview:both
 
 Open [Projects](http://127.0.0.1:4323/) or [Résumé](http://127.0.0.1:4323/resume/). `COMPANION_DIST` overrides the default `../work/dist` directory. Rebuild after changes and refresh. Stop the preview before running browser tests.
 
-For live editing, use separate Astro dev servers on ports 4321 and 4322. For cross-site browser checks, set `COMPANION_DIST` to the résumé build before running `npm run test:e2e`; these checks are skipped when no companion build is supplied.
+For live editing, use separate Astro dev servers on ports 4321 and 4322. Run the required combined-build journey separately (PowerShell):
+
+```powershell
+$env:COMPANION_DIST = (Resolve-Path ../work/dist).Path
+npm run test:integration
+```
+
+This command requires complete builds of both sites and fails if the companion path is missing. It verifies navigation, downloads, and theme persistence across both builds. The preview maps the production home URL locally; each site's own suite independently checks its original production link URLs.
 
 ## Updating projects
 
@@ -52,6 +61,6 @@ The same data file contains the introduction, résumé destination, social profi
 
 ## Deployment
 
-The `main` branch publishes to GitHub Pages through `.github/workflows/deploy.yml`. Pull requests run the build and browser checks; pushes to `main` and manual runs on `main` deploy the resulting `dist/` artifact. GitHub Pages must use GitHub Actions as its source.
+The `main` branch publishes to GitHub Pages through `.github/workflows/deploy.yml`. Pull requests build the candidate hub and the résumé repository's `main`, record both commit IDs, run the hub suite and combined journey, and gate deployment on those checks. Pushes to `main` and manual runs on `main` deploy only the hub's `dist/` artifact. GitHub Pages must use GitHub Actions as its source.
 
 The site uses the origin root. The résumé remains a separate deployment under `/resume/`, and project destinations retain their existing paths.

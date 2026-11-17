@@ -1,3 +1,7 @@
 import { serveBuilds } from '../scripts/static-server.mjs';
 
-await serveBuilds({ companion: process.env.COMPANION_DIST });
+const combined = process.argv.includes('--combined');
+if (combined && !process.env.COMPANION_DIST) {
+  throw new Error('test:integration requires COMPANION_DIST pointing to a complete résumé production build.');
+}
+await serveBuilds({ companion: combined ? process.env.COMPANION_DIST : undefined });
