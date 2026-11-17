@@ -55,8 +55,8 @@ export const projects = [
       ],
       screenshot: {
         src: '/previews/raffler.webp',
-        position: '50% 100%',
-        alt: 'Raffler with fictional participants at the entry desk, a ready live draw, and the winners section.',
+        position: '50% 0%',
+        alt: 'Raffler’s live-draw screen with six sample participants, an orange Draw a winner button, and an Add names sidebar.',
         width: 1200,
         height: 630,
       },
