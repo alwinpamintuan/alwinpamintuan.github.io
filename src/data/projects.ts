@@ -82,8 +82,8 @@ export const identity = {
 } as const;
 
 export const about = {
-  heading: ['Projects.', 'Experiments.', 'Side quests.'],
-  description: 'Things I make outside of work.',
+  heading: ['Personal builds.', 'Weird ideas.', 'Creative detours.'],
+  description: 'A running log of what I build off the clock.',
   location: 'Metro Manila, Philippines',
 } as const;
 
