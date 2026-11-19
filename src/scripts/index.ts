@@ -1,5 +1,21 @@
 import './site-navigation';
 
+const backToTop = document.querySelector<HTMLAnchorElement>('.site-footer .back-to-top');
+
+if (backToTop) {
+  const updateBackToTop = (): void => {
+    const threshold = Math.min(320, window.innerHeight / 2);
+    backToTop.hidden = window.scrollY < threshold && document.activeElement !== backToTop;
+  };
+
+  backToTop.dataset.floating = '';
+  backToTop.title = 'Back to top';
+  window.addEventListener('scroll', updateBackToTop, { passive: true });
+  window.addEventListener('resize', updateBackToTop);
+  backToTop.addEventListener('blur', updateBackToTop);
+  updateBackToTop();
+}
+
 const themeToggle = document.querySelector<HTMLButtonElement>('.theme-toggle');
 
 if (themeToggle) {

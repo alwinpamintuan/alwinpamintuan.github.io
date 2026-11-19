@@ -1,7 +1,6 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
-// Prevent broken destinations without depending on external uptime.
 test('project and contact links expose the intended native destinations', async ({ page, request }) => {
   await page.goto('/');
   for (const [name, href] of [
@@ -29,8 +28,8 @@ test('project and contact links expose the intended native destinations', async 
   }
 });
 
-// Prevent keyboard users losing access to the index, projects, and contacts.
 test('skip link and keyboard navigation reach the page actions', async ({ page }) => {
+  await page.setViewportSize({ width: 375, height: 600 });
   await page.goto('/');
   await page.keyboard.press('Tab');
   await expect(page.getByRole('link', { name: 'Skip to index' })).toBeFocused();
@@ -44,7 +43,33 @@ test('skip link and keyboard navigation reach the page actions', async ({ page }
   await expect(page.getByRole('main')).toBeInViewport();
 });
 
-// Prevent system changes overriding a choice, or reload losing that choice.
+test('Back to top appears after scrolling and stays outside the cards', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  for (const width of [1280, 1279, 375]) {
+    await page.setViewportSize({ width, height: 400 });
+    await page.goto('/');
+    const backToTop = page.getByRole('link', { name: 'Back to top' });
+    await expect(backToTop).toBeHidden();
+    await page.keyboard.press('End');
+    await expect(backToTop).toBeVisible();
+
+    const { contacts, control } = await backToTop.evaluate((element) => ({
+      contacts: element.closest('footer')!.querySelector('nav')!.getBoundingClientRect().toJSON(),
+      control: element.getBoundingClientRect().toJSON(),
+    }));
+    if (width === 1280) {
+      expect(control.left).toBeGreaterThan(contacts.right);
+      expect(control.bottom).toBeLessThan(400);
+    } else {
+      expect(control.top).toBeGreaterThanOrEqual(contacts.bottom);
+    }
+
+    await backToTop.click();
+    await expect(backToTop).toBeHidden();
+    await expect(page.getByRole('main')).toBeFocused();
+  }
+});
+
 test('theme follows the system until selected and persists after reload', async ({ page }) => {
   const background = () => page.locator('body').evaluate((element) => getComputedStyle(element).backgroundColor);
   await page.emulateMedia({ colorScheme: 'light' });
@@ -63,7 +88,6 @@ test('theme follows the system until selected and persists after reload', async 
   await expect.poll(background).toBe(light);
 });
 
-// Prevent existing visitors losing their theme when the preference key changes.
 test('legacy theme preference survives migration and another reload', async ({ page }) => {
   await page.emulateMedia({ colorScheme: 'dark' });
   await page.goto('/');
@@ -76,7 +100,6 @@ test('legacy theme preference survives migration and another reload', async ({ p
   await expect(toggle).not.toBeChecked();
 });
 
-// Prevent the static page becoming unusable when scripts cannot run.
 test('projects and contacts remain available without JavaScript', async ({ browser }) => {
   const context = await browser.newContext({ javaScriptEnabled: false, colorScheme: 'light' });
   try {
@@ -92,7 +115,6 @@ test('projects and contacts remain available without JavaScript', async ({ brows
   } finally { await context.close(); }
 });
 
-// Prevent inaccessible or horizontally clipped real content in either theme.
 for (const colorScheme of ['light', 'dark'] as const) test(`content remains accessible and reflows in ${colorScheme} mode`, async ({ page }) => {
   await page.emulateMedia({ colorScheme, reducedMotion: 'reduce' });
   for (const [width, height] of [[375, 960], [768, 960], [1440, 960], [640, 450]] as const) {

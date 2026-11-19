@@ -44,9 +44,9 @@ This command requires complete builds of both sites and fails if the companion p
 
 ## Updating projects
 
-Edit `src/data/projects.ts`. Keep IDs unique and stable. Cards use each entry's label, description, URL, and `preview.screenshot`; the data also retains supporting project facts. The first project is wider on desktop, subsequent cards flow automatically, and the résumé card fills an unpaired final row.
+Edit `src/data/projects.ts`. Keep IDs unique and stable. Projects appear in catalog order and pack automatically between the intro and résumé.
 
-Screenshots live in `public/previews/`. Preserve original colors, intrinsic dimensions, and accurate alternative text. An optional `position` controls the desktop crop. Compact screens show the entire image. The first image loads eagerly; others load lazily. Adding a project requires no header or layout changes.
+Screenshots live in `public/previews/`. Preserve original colors, intrinsic dimensions, and accurate alternative text. An optional `position` controls the desktop crop. Compact screens show the entire image. The first image loads eagerly and others load lazily.
 
 The same data file contains the introduction, résumé destination, social profiles, and email. Career details and document exports belong in the companion repository. The apps themselves are maintained separately.
 
@@ -56,7 +56,6 @@ The same data file contains the introduction, résumé destination, social profi
 - Mirror `src/styles/site-tokens.css`, `site-chrome.css`, `site-transitions.css`, `src/scripts/site-navigation.ts`, and `src/components/SiteFooter.astro` with the résumé repository. Keep page-specific layout styles separate.
 - The sticky header links the owner's name home. The résumé adds current-page section navigation; cross-site discovery stays in page content. The shared contact footer contains GitHub, LinkedIn, Email, and Back to top.
 - Preserve the `personal-site:theme` preference and migration from `project-index:theme`. Without a saved choice, follow system changes. Blocked storage still permits a choice for the current page; without JavaScript, CSS follows the system theme.
-- Keep the hub shell at least one screen tall, with a bottom-aligned footer and a centered desktop grid when content fits. Let longer pages grow without stretching cards.
 - Keep native links, visible focus, 44px minimum control targets, fine-pointer hover feedback, and immediate reduced-motion behavior. The introduction uses three explicit heading lines.
 
 ## Deployment
